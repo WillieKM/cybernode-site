@@ -1,13 +1,11 @@
+function calculateScore(){
 
-console.log("Cyber-Node site loaded");
-window.addEventListener("scroll", function(){
+let score =
+parseInt(document.getElementById("q1").value) +
+parseInt(document.getElementById("q2").value) +
+parseInt(document.getElementById("q3").value);
 
-let cards = document.querySelectorAll(".solution-card");
+document.getElementById("result").innerHTML =
+"Security Score: " + score + "%";
 
-cards.forEach(card => {
-
-card.style.opacity = "1";
-
-});
-
-});
+}
