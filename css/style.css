@@ -254,3 +254,18 @@ text-align:center;
 .case-studies .card{
 text-align:left;
 }
+.dashboard{
+padding:100px 20px;
+text-align:center;
+}
+
+table{
+width:80%;
+margin:auto;
+border-collapse:collapse;
+}
+
+th,td{
+padding:15px;
+border-bottom:1px solid #333;
+}
