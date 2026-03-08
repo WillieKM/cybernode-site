@@ -3,62 +3,49 @@ async function scanDomain(){
 let domain=document.getElementById("domainInput").value;
 
 if(!domain){
-alert("Enter a domain first");
+alert("Enter a domain");
 return;
 }
 
-document.getElementById("results").innerHTML="Scanning...";
+document.getElementById("results").innerHTML="Scanning domain...";
 
 try{
 
-let ssl = await fetch(`https://api.ssllabs.com/api/v3/analyze?host=${domain}`);
+let response = await fetch(`http://localhost:3000/scan?domain=${domain}`);
 
-let securityHeaders = await fetch(`https://securityheaders.com/?q=${domain}&followRedirects=on&hide=on&format=json`);
-
-let sslData = await ssl.json();
-let headerData = await securityHeaders.json();
-
-let grade="Unknown";
-
-if(headerData[0]){
-grade=headerData[0].grade;
-}
+let data = await response.json();
 
 document.getElementById("results").innerHTML=
 
-`<h3>Security Report for ${domain}</h3>
+`<h3>Security Report</h3>
 
-<p><strong>Security Headers Grade:</strong> ${grade}</p>
+<p><strong>Domain:</strong> ${data.domain}</p>
 
-<p><strong>SSL Status:</strong> ${sslData.status}</p>
+<p><strong>SSL Status:</strong> ${data.ssl}</p>
 
-<p><strong>Recommendation:</strong> Enable strong security headers and perform vulnerability testing.</p>
+<p><strong>Security Headers:</strong> ${data.headers}</p>
 
-<button onclick="captureLead()" class="btn-primary">
+<p><strong>Open Ports:</strong> ${data.ports}</p>
 
-Get Full Security Report
+<button onclick="generateReport('${domain}')"
+class="btn-primary">
+Download Full Report </button>
 
-</button>
 `;
 
 }
 
 catch{
 
-document.getElementById("results").innerHTML="Scan failed.";
+document.getElementById("results").innerHTML=
+"Scan failed. Try again.";
 
 }
 
 }
 
-function captureLead(){
+function generateReport(domain){
 
-let email=prompt("Enter email to receive full report");
-
-if(email){
-
-alert("Report will be sent to "+email);
-
-}
+window.open(`http://localhost:3000/report?domain=${domain}`);
 
 }
