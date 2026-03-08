@@ -42,5 +42,55 @@ card.style.opacity="1";
 }
 
 });
+  function runScan(){
+
+let domain = document.getElementById("domain").value;
+
+let score = Math.floor(Math.random()*40)+60;
+
+let results = `
+
+<h3>Security Score: ${score}%</h3>
+
+<p>Scan Results for <strong>${domain}</strong></p>
+
+<ul>
+<li>SSL Certificate: Detected</li>
+<li>Firewall Protection: Partial</li>
+<li>Open Port Exposure: Possible</li>
+<li>Security Headers: Needs Improvement</li>
+</ul>
+
+<p class="warning">
+
+Recommendation: Run a full cybersecurity assessment.
+
+</p>
+
+<button onclick="captureLead()" class="btn-primary">
+
+Get Full Security Report
+
+</button>
+
+`;
+
+document.getElementById("scanResults").innerHTML = results;
+
+}
+
+
+
+function captureLead(){
+
+let email = prompt("projects@cyber-node.com");
+
+if(email){
+
+alert("Security report will be sent to: "+email);
+
+}
+
+}
 
 });
