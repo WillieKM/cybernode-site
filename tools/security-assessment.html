@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+
+<title>Security Assessment | Cyber-Node</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<h2>Cybersecurity Assessment</h2>
+
+<p>Answer a few questions to evaluate your security posture.</p>
+
+</section>
+
+
+<section class="features">
+
+<form id="scanForm">
+
+<label>
+Do you use Multi-Factor Authentication?
+</label>
+
+<select id="q1">
+<option value="0">No</option>
+<option value="10">Yes</option>
+</select>
+
+<label>
+Are systems updated regularly?
+</label>
+
+<select id="q2">
+<option value="0">No</option>
+<option value="10">Yes</option>
+</select>
+
+<label>
+Is cloud storage encrypted?
+</label>
+
+<select id="q3">
+<option value="0">No</option>
+<option value="10">Yes</option>
+</select>
+
+<button class="btn-primary" type="button" onclick="calculateScore()">
+Calculate Score
+</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+</section>
+
+<script src="../js/script.js"></script>
+
+</body>
+</html>
