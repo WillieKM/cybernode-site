@@ -208,3 +208,31 @@ padding:100px 20px;
 text-align:center;
 background:#020617;
 }
+.pricing{
+padding:100px 20px;
+text-align:center;
+}
+
+.pricing-card h2{
+color:#3b82f6;
+margin:15px 0;
+}
+
+.pricing-card ul{
+text-align:left;
+margin-top:20px;
+}
+
+.pricing-card li{
+margin-bottom:10px;
+}
+
+.highlight{
+border:2px solid #3b82f6;
+}
+
+.pricing-extra{
+padding:100px 20px;
+text-align:center;
+background:#020617;
+}
