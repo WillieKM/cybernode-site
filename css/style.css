@@ -1,69 +1,193 @@
 body{
+
 margin:0;
-font-family:Arial;
-background:#0f172a;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b0f1a;
 color:white;
+
 }
 
+
 .container{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 }
 
-.nav{
+
+.navbar{
+
 background:#020617;
 padding:20px;
+
 }
 
-.logo{
-font-size:22px;
-}
 
 nav a{
-margin-right:20px;
-text-decoration:none;
+
 color:white;
+margin-left:20px;
+text-decoration:none;
+
 }
+
+
+.logo{
+
+font-size:22px;
+font-weight:bold;
+
+}
+
 
 .hero{
-padding:120px 20px;
+
+height:80vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
 text-align:center;
+
+background:linear-gradient(135deg,#1d4ed8,#0f172a);
+
 }
 
-.features{
+
+.hero-content{
+
+max-width:700px;
+
+}
+
+
+.hero h2{
+
+font-size:48px;
+margin-bottom:20px;
+
+}
+
+
+.hero-buttons{
+
+margin-top:30px;
+
+}
+
+
+.btn-primary{
+
+background:#2563eb;
+padding:14px 26px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+margin-right:10px;
+
+}
+
+
+.btn-secondary{
+
+border:1px solid #2563eb;
+padding:14px 26px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+
+}
+
+
+.solutions{
+
 padding:80px 20px;
 text-align:center;
+
 }
 
-.grid{
+
+.solution-grid{
+
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+
+gap:25px;
+
 margin-top:40px;
+
 }
 
-.card{
-background:#1e293b;
+
+.solution-card{
+
+background:#111827;
+
 padding:30px;
-border-radius:8px;
+
+border-radius:10px;
+
+transition:0.3s;
+
 }
 
-.btn{
-background:#2563eb;
-padding:12px 20px;
-border-radius:6px;
-text-decoration:none;
-color:white;
+
+.solution-card:hover{
+
+transform:translateY(-6px);
+
+background:#1f2937;
+
 }
 
-.cta{
+
+.platform-preview{
+
 padding:100px 20px;
 text-align:center;
+
 }
 
-footer{
-background:#020617;
-padding:20px;
+
+.dashboard-box{
+
+margin:40px auto;
+
+width:80%;
+
+height:300px;
+
+background:#111827;
+
+border-radius:10px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+.cta{
+
+padding:100px 20px;
+
 text-align:center;
+
+background:#1e293b;
+
+}
+
+
+footer{
+
+text-align:center;
+padding:30px;
+
+background:#020617;
+
 }
