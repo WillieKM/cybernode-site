@@ -1,35 +1,35 @@
 async function scanDomain(){
 
-let domain=document.getElementById("domainInput").value;
+let domain = document.getElementById("domainInput").value;
 
 if(!domain){
 alert("Enter a domain");
 return;
 }
 
-document.getElementById("results").innerHTML="Scanning domain...";
+document.getElementById("results").innerHTML="Scanning...";
 
 try{
 
-let response = await fetch(`http://localhost:3000/scan?domain=${domain}`);
+let ssl = await fetch(`https://api.ssllabs.com/api/v3/analyze?host=${domain}`);
 
-let data = await response.json();
+let sslData = await ssl.json();
+
+let status = sslData.status || "Unknown";
 
 document.getElementById("results").innerHTML=
 
 `<h3>Security Report</h3>
 
-<p><strong>Domain:</strong> ${data.domain}</p>
+<p><strong>Domain:</strong> ${domain}</p>
 
-<p><strong>SSL Status:</strong> ${data.ssl}</p>
+<p><strong>SSL Status:</strong> ${status}</p>
 
-<p><strong>Security Headers:</strong> ${data.headers}</p>
+<p><strong>Recommendation:</strong> Run full vulnerability testing.</p>
 
-<p><strong>Open Ports:</strong> ${data.ports}</p>
-
-<button onclick="generateReport('${domain}')"
-class="btn-primary">
-Download Full Report </button>
+<button onclick="captureLead('${domain}')" class="btn-primary">
+Get Full Report
+</button>
 
 `;
 
@@ -38,14 +38,21 @@ Download Full Report </button>
 catch{
 
 document.getElementById("results").innerHTML=
-"Scan failed. Try again.";
+"Scan failed. Try another domain.";
 
 }
 
 }
 
-function generateReport(domain){
 
-window.open(`http://localhost:3000/report?domain=${domain}`);
+function captureLead(domain){
+
+let email = prompt("Enter email for full report");
+
+if(email){
+
+alert("Report request sent for "+domain);
+
+}
 
 }
