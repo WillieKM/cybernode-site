@@ -9,3 +9,20 @@ document.getElementById("result").innerHTML =
 "Security Score: " + score + "%";
 
 }
+document.getElementById("leadForm")?.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+fetch("YOUR_GOOGLE_SCRIPT_URL",{
+
+method:"POST",
+
+body:new FormData(this)
+
+}).then(()=>{
+
+alert("Message sent. We will contact you soon.");
+
+});
+
+});
