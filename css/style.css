@@ -247,3 +247,31 @@ text-align:center;
 padding:20px;
 
 }
+.scan-tool{
+
+padding:80px 20px;
+text-align:center;
+
+}
+
+.scan-tool input{
+
+padding:14px;
+width:260px;
+border-radius:6px;
+border:none;
+margin-right:10px;
+
+}
+
+#scanResults{
+
+margin-top:40px;
+
+}
+
+.warning{
+
+color:#facc15;
+
+}
