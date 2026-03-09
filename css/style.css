@@ -519,3 +519,29 @@ border-radius:6px;
 border:none;
 
 }
+.trust{
+padding:100px 20px;
+text-align:center;
+background:#020617;
+}
+
+.platform-overview{
+padding:80px 20px;
+text-align:center;
+}
+
+.dashboard-preview{
+padding:100px 20px;
+text-align:center;
+}
+
+.case-highlight{
+padding:80px 20px;
+text-align:center;
+background:#020617;
+}
+
+.pricing-preview{
+padding:100px 20px;
+text-align:center;
+}
