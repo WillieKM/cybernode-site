@@ -362,3 +362,27 @@ border-radius:10px;
 text-align:left;
 margin-top:10px;
 }
+.dashboard-metrics{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:60px 20px;
+
+}
+
+.metric-card{
+
+background:#111827;
+padding:30px;
+border-radius:10px;
+text-align:center;
+
+}
+
+.metric-card p{
+
+font-size:28px;
+color:#3b82f6;
+
+}
