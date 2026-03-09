@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<title>Security Dashboard | Cyber-Node</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Security Operations Dashboard | Cyber-Node</title>
+
 <link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -12,12 +20,14 @@
 
 <div class="container">
 
-<div class="logo">Cyber-Node Dashboard</div>
+<div class="logo">Cyber-Node SOC</div>
 
 <nav>
 
 <a href="index.html">Home</a>
-<a onclick="logout()">Logout</a>
+<a href="tools/security-scan.html">Scanner</a>
+<a href="tools/attack-surface.html">Attack Surface</a>
+<a href="logout.html">Logout</a>
 
 </nav>
 
@@ -28,79 +38,97 @@
 
 <section class="hero">
 
-<h1>Security Dashboard</h1>
+<h1>Security Operations Dashboard</h1>
 
-<p>Monitor your organization's security posture.</p>
+<p>Monitor security posture and vulnerability intelligence.</p>
+
+</section>
+
+
+
+<section class="dashboard-metrics">
+
+<div class="metric-card">
+
+<h3>Active Domains</h3>
+
+<p id="domainsCount">3</p>
+
+</div>
+
+<div class="metric-card">
+
+<h3>Average Security Score</h3>
+
+<p id="avgScore">82</p>
+
+</div>
+
+<div class="metric-card">
+
+<h3>Vulnerabilities Detected</h3>
+
+<p id="vulnCount">5</p>
+
+</div>
+
+<div class="metric-card">
+
+<h3>Monitoring Status</h3>
+
+<p>Active</p>
+
+</div>
 
 </section>
 
 
-<section class="dashboard">
 
-<table>
-let scans = JSON.parse(localStorage.getItem("scans") || "[]")
+<section class="dashboard-charts">
 
-scans.forEach(scan=>{
+<div class="chart-box">
 
-let row = document.createElement("tr")
+<h3>Security Score Overview</h3>
 
-row.innerHTML=`
-<td>${scan.domain}</td>
-<td>${scan.score}</td>
-<td>${scan.date}</td>
-`
+<canvas id="riskChart"></canvas>
 
-document.querySelector("table").appendChild(row)
+</div>
 
-})
 
-<tr>
-<td>example.com</td>
-<td>82</td>
-<td>Secure</td>
-<td>Today</td>
-</tr>
-<tr>
-<th>Domain</th>
-<th>Score</th>
-<th>Risk</th>
-<th>Date</th>
-</tr>
-</table>
+<div class="chart-box">
+
+<h3>Attack Surface Map</h3>
+
+<canvas id="surfaceChart"></canvas>
+
+</div>
 
 </section>
+
+
+
+<section class="threat-feed">
+
+<h2>Threat Intelligence Feed</h2>
+
+<ul id="threatFeed">
+
+<li>New vulnerability discovered in web servers</li>
+
+<li>Suspicious login activity detected globally</li>
+
+<li>Critical CVE released affecting CMS platforms</li>
+
+</ul>
+
+</section>
+
+
 
 <script src="js/dashboard.js"></script>
+<script src="js/dashboard-chart.js"></script>
+<script src="js/threat-feed.js"></script>
 
 </body>
 
 </html>
-<canvas id="riskChart" width="400" height="200"></canvas>
-<button onclick="runScheduledScan()" class="btn-primary">
-Run Monitoring Scan
-</button>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/dashboard-chart.js"></script>
-<h2>Security Monitoring</h2>
-
-<div class="grid">
-
-<div class="card">
-Active Domains
-</div>
-
-<div class="card">
-Average Risk Score
-</div>
-
-<div class="card">
-Vulnerabilities Detected
-</div>
-
-</div>
-<h2>Attack Surface Map</h2>
-
-<canvas id="surfaceChart" width="400" height="200"></canvas>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/surface-chart.js"></script>
