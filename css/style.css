@@ -1106,3 +1106,39 @@ border-left:4px solid #ff5252;
 border-radius:6px;
 font-size:14px;
 }
+/* DOMAIN SCANNER */
+
+.domain-scanner{
+max-width:900px;
+margin:60px auto;
+text-align:center;
+padding:20px;
+}
+
+.scanner-box{
+margin-top:20px;
+}
+
+.scanner-box input{
+padding:12px;
+width:260px;
+border:none;
+border-radius:6px;
+margin-right:10px;
+}
+
+.scanner-box button{
+padding:12px 20px;
+background:#2D8FE3;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.scan-results{
+margin-top:30px;
+background:#0f1f3d;
+padding:25px;
+border-radius:10px;
+}
