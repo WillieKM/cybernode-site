@@ -12,29 +12,164 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<style>
+
+/* DASHBOARD HERO */
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(90deg,#1e3c72,#0b1d3a);
+}
+
+.hero h1{
+font-size:44px;
+margin-bottom:10px;
+}
+
+/* METRICS */
+
+.dashboard-metrics{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+max-width:1200px;
+margin:50px auto;
+padding:0 20px;
+}
+
+.metric-card{
+background:#0f1f3d;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+.metric-card h3{
+margin-bottom:10px;
+}
+
+.metric-card p{
+font-size:32px;
+color:#2D8FE3;
+}
+
+/* CHARTS */
+
+.dashboard-charts{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+max-width:1200px;
+margin:40px auto;
+padding:0 20px;
+}
+
+.chart-box{
+background:#0f1f3d;
+padding:30px;
+border-radius:10px;
+}
+
+/* THREAT FEED */
+
+.threat-feed{
+max-width:1200px;
+margin:50px auto;
+padding:0 20px;
+}
+
+.threat-feed ul{
+list-style:none;
+padding:0;
+}
+
+.threat-feed li{
+background:#0f1f3d;
+padding:15px;
+margin-bottom:10px;
+border-left:4px solid #2D8FE3;
+}
+
+/* ATTACK MAP */
+
+.threat-map{
+max-width:1200px;
+margin:60px auto;
+padding:0 20px;
+}
+
+.threat-map iframe{
+border-radius:10px;
+}
+
+/* AI ASSISTANT */
+
+#aiAssistant{
+position:fixed;
+bottom:20px;
+right:20px;
+width:300px;
+background:#0f1f3d;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+#aiHeader{
+background:#2D8FE3;
+padding:10px;
+font-weight:bold;
+}
+
+#aiMessages{
+padding:10px;
+height:150px;
+overflow:auto;
+}
+
+#aiInput{
+width:100%;
+border:none;
+padding:10px;
+background:#081224;
+color:white;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header class="navbar">
 
-<div class="container">
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-container">
 
 <div class="logo">Cyber-Node SOC</div>
 
-<nav>
+<ul class="nav-menu">
 
-<a href="index.html">Home</a>
-<a href="tools/security-scan.html">Scanner</a>
-<a href="tools/attack-surface.html">Attack Surface</a>
-<a href="logout.html">Logout</a>
+<li><a href="index.html">Home</a></li>
+<li><a href="tools/security-scan.html">Scanner</a></li>
+<li><a href="tools/attack-surface.html">Attack Surface</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
 
-</nav>
+<li>
+<a href="logout.html" class="contact-btn">Logout</a>
+</li>
+
+</ul>
 
 </div>
 
-</header>
+</nav>
 
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -45,44 +180,34 @@
 </section>
 
 
+<!-- METRICS -->
 
 <section class="dashboard-metrics">
 
 <div class="metric-card">
-
 <h3>Active Domains</h3>
-
 <p id="domainsCount">3</p>
-
 </div>
 
 <div class="metric-card">
-
 <h3>Average Security Score</h3>
-
 <p id="avgScore">82</p>
-
 </div>
 
 <div class="metric-card">
-
 <h3>Vulnerabilities Detected</h3>
-
 <p id="vulnCount">5</p>
-
 </div>
 
 <div class="metric-card">
-
 <h3>Monitoring Status</h3>
-
-<p>Active</p>
-
+<p style="color:#4CAF50;">Active</p>
 </div>
 
 </section>
 
 
+<!-- CHARTS -->
 
 <section class="dashboard-charts">
 
@@ -106,6 +231,7 @@
 </section>
 
 
+<!-- THREAT FEED -->
 
 <section class="threat-feed">
 
@@ -113,21 +239,35 @@
 
 <ul id="threatFeed">
 
-<li>New vulnerability discovered in web servers</li>
+<li>⚠️ New vulnerability discovered in web servers</li>
 
-<li>Suspicious login activity detected globally</li>
+<li>⚠️ Suspicious login activity detected globally</li>
 
-<li>Critical CVE released affecting CMS platforms</li>
+<li>⚠️ Critical CVE released affecting CMS platforms</li>
 
 </ul>
 
 </section>
 
 
+<!-- GLOBAL ATTACK MAP -->
 
-<script src="js/dashboard.js"></script>
-<script src="js/dashboard-chart.js"></script>
-<script src="js/threat-feed.js"></script>
+<section class="threat-map">
+
+<h2>Global Cyber Attack Activity</h2>
+
+<iframe
+src="https://cybermap.kaspersky.com"
+width="100%"
+height="500"
+style="border:none">
+</iframe>
+
+</section>
+
+
+<!-- AI ASSISTANT -->
+
 <div id="aiAssistant">
 
 <div id="aiHeader">
@@ -142,19 +282,12 @@ Cyber-Node AI Security Assistant
 
 </div>
 
+
+<script src="js/dashboard.js"></script>
+<script src="js/dashboard-chart.js"></script>
+<script src="js/threat-feed.js"></script>
 <script src="js/ai-assistant.js"></script>
+
 </body>
 
 </html>
-<section class="threat-map">
-
-<h2>Global Cyber Attack Activity</h2>
-
-<iframe
-src="https://cybermap.kaspersky.com"
-width="100%"
-height="500"
-style="border:none;border-radius:10px">
-</iframe>
-
-</section>
