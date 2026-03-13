@@ -420,7 +420,68 @@ margin-bottom:10px;
 border:2px solid #3b82f6;
 
 }
+.pricing-title{
+text-align:center;
+font-size:36px;
+margin-bottom:40px;
+}
 
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
+margin-top:30px;
+}
+
+.pricing-card{
+background:#0f1f3d;
+padding:40px;
+border-radius:12px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.3s;
+position:relative;
+}
+
+.pricing-card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.4);
+}
+
+.pricing-card h2{
+color:#2D8FE3;
+font-size:38px;
+margin:20px 0;
+}
+
+.pricing-card ul{
+text-align:left;
+margin:25px 0;
+padding-left:18px;
+}
+
+.pricing-card li{
+margin-bottom:10px;
+color:#cbd7ff;
+}
+
+.featured{
+border:2px solid #2D8FE3;
+transform:scale(1.05);
+}
+
+.recommended{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+background:#2D8FE3;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
 
 /* =========================
    SCANNER
