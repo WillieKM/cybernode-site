@@ -724,57 +724,72 @@ margin-top:10px;
 font-weight:600;
 }
 .security-check{
-text-align:center;
+background:#08152b;
+padding:80px 20px;
+display:flex;
+justify-content:center;
 }
 
-.security-form{
+.security-container{
+background:#0f1f3d;
+padding:50px;
+border-radius:12px;
 max-width:600px;
-margin:40px auto;
-display:grid;
-gap:15px;
+width:100%;
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
 }
 
-.security-form select,
-.security-form input{
-
-padding:12px;
-border-radius:6px;
-border:1px solid rgba(255,255,255,0.1);
-background:#0f172a;
-color:white;
-
+.security-container h2{
+text-align:center;
+margin-bottom:10px;
 }
 
-.security-form button{
-margin-top:10px;
-}
-.security-check{
-background:#0F172A;
-color:white;
-padding:60px;
-border-radius:10px;
+.subtitle{
+text-align:center;
+margin-bottom:30px;
+color:#a9c4ff;
 }
 
-.security-check form{
+.form-group{
 display:flex;
 flex-direction:column;
-gap:15px;
-max-width:500px;
+margin-bottom:20px;
 }
 
-.security-check select{
-padding:10px;
+.form-group label{
+margin-bottom:6px;
+font-size:14px;
+}
+
+.form-group select{
+padding:12px;
 border-radius:6px;
+border:none;
+background:#f2f2f2;
 }
 
-.security-check button{
+.scan-btn{
+margin-top:10px;
 background:#2D8FE3;
 border:none;
-padding:12px;
-color:white;
-font-weight:bold;
+padding:14px;
 border-radius:6px;
+color:white;
+font-weight:600;
 cursor:pointer;
+transition:0.3s;
+}
+
+.scan-btn:hover{
+background:#1c6fc4;
+}
+
+#result{
+margin-top:30px;
+padding:20px;
+background:#08152b;
+border-radius:8px;
+text-align:center;
 }
 
 .cta-btn{
