@@ -1194,3 +1194,6 @@ margin-top:10px;
 margin-bottom:6px;
 color:#cbd7ff;
 }
+.scan-box button:hover{
+box-shadow:0 0 15px #2D8FE3;
+}
