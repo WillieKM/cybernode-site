@@ -561,3 +561,14 @@ top:0;
 z-index:100;
 backdrop-filter:blur(6px);
 }
+.attack-graph{
+padding:100px 20px;
+text-align:center;
+}
+
+#graph{
+height:420px;
+background:#111827;
+border-radius:12px;
+margin-top:40px;
+}
