@@ -10,6 +10,8 @@
 
 <style>
 
+/* GLOBAL */
+
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
@@ -20,23 +22,47 @@ color:white;
 /* NAVBAR */
 
 .navbar{
+background:#020c1b;
+padding:18px 40px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
-background:#020c1b;
 }
 
 .logo{
 font-size:20px;
-font-weight:bold;
+font-weight:600;
+color:white;
 }
 
-.nav-links a{
-margin-left:25px;
-color:white;
+/* NAV MENU */
+
+.nav-menu{
+display:flex;
+align-items:center;
+gap:28px;
+list-style:none;
+margin:0;
+padding:0;
+}
+
+.nav-menu a{
 text-decoration:none;
-font-size:14px;
+color:white;
+font-size:15px;
+transition:0.3s;
+}
+
+.nav-menu a:hover{
+color:#2D8FE3;
 }
 
 .contact-btn{
@@ -49,22 +75,24 @@ border-radius:6px;
 
 .hero{
 text-align:center;
-padding:100px 20px;
+padding:110px 20px;
 background:linear-gradient(90deg,#1e3c72,#0b1d3a);
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:15px;
+font-size:44px;
+margin-bottom:20px;
 }
 
 .hero p{
+font-size:18px;
 max-width:700px;
 margin:auto;
+line-height:1.6;
 color:#cbd7ff;
 }
 
-/* MISSION */
+/* CONTENT SECTIONS */
 
 .section{
 max-width:1100px;
@@ -76,7 +104,7 @@ padding:70px 20px;
 margin-bottom:15px;
 }
 
-/* EXPERTISE CARDS */
+/* CARDS */
 
 .cards{
 display:grid;
@@ -96,7 +124,7 @@ transition:0.3s;
 transform:translateY(-5px);
 }
 
-/* FRAMEWORKS */
+/* FRAMEWORK TAGS */
 
 .frameworks{
 display:flex;
@@ -211,24 +239,16 @@ color:#7a8cb3;
 
 <div class="nav-container">
 
-<div class="logo">
-Cyber-Node
-</div>
+<div class="logo">Cyber-Node</div>
 
 <ul class="nav-menu">
 
 <li><a href="index.html">Home</a></li>
-
 <li><a href="about.html">About</a></li>
-
 <li><a href="services.html">Services</a></li>
-
 <li><a href="pricing.html">Pricing</a></li>
-
 <li><a href="case-studies.html">Case Studies</a></li>
-
 <li><a href="resources.html">Resources</a></li>
-
 <li><a href="dashboard.html">Dashboard</a></li>
 
 <li>
@@ -292,7 +312,7 @@ Our mission is to help organizations strengthen cybersecurity defenses while sim
 
 </section>
 
-<!-- FRAMEWORK EXPERTISE -->
+<!-- FRAMEWORKS -->
 
 <section class="section">
 
@@ -421,13 +441,10 @@ Run Free Security Scan
 </div>
 
 <div class="footer-bottom">
-
 Cyber-Node © 2026 — Cybersecurity & Security Automation
-
 </div>
 
 </footer>
 
 </body>
-
 </html>
