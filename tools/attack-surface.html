@@ -2,44 +2,216 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Attack Surface Discovery | Cyber-Node</title>
-<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(90deg,#1e3c72,#0b1d3a);
+}
+
+.hero h1{
+font-size:44px;
+margin-bottom:10px;
+}
+
+/* SCANNER */
+
+.scan-section{
+text-align:center;
+margin:80px auto;
+max-width:800px;
+}
+
+.scan-box input{
+padding:12px;
+width:260px;
+border:none;
+border-radius:6px;
+margin-right:10px;
+}
+
+.scan-box button{
+padding:12px 20px;
+background:#2D8FE3;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.results{
+margin-top:40px;
+background:#0f1f3d;
+padding:30px;
+border-radius:10px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#020c1b;
+padding:60px 20px;
+margin-top:100px;
+}
+
+.footer-grid{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+}
+
+.footer h4{
+color:#2D8FE3;
+margin-bottom:10px;
+}
+
+.footer a{
+display:block;
+color:#cbd7ff;
+text-decoration:none;
+margin-bottom:8px;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+font-size:13px;
+color:#7a8cb3;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header class="navbar">
-<div class="container">
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
 <div class="logo">Cyber-Node</div>
-<nav>
-<a href="../index.html">Home</a>
-<a href="../dashboard.html">Dashboard</a>
-<a href="../services.html">Services</a>
-<a href="../contact.html" class="contact-btn">Contact</a>
-</nav>
+
+<ul class="nav-menu">
+
+<li><a href="index.html">Home</a></li>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="services.html">Services</a></li>
+
+<li>
+<a href="contact.html" class="contact-btn">Contact</a>
+</li>
+
+</ul>
+
 </div>
-</header>
+
+</nav>
+
+
+<!-- HERO -->
 
 <section class="hero">
+
 <h1>Attack Surface Discovery</h1>
+
 <p>Identify exposed infrastructure and potential security risks.</p>
+
 </section>
+
+
+<!-- DOMAIN SCAN -->
 
 <section class="scan-section">
 
-<input id="targetDomain" placeholder="example.com">
+<div class="scan-box">
 
-<button onclick="discoverSurface()" class="btn-primary">
+<input type="text" id="domainInput" placeholder="example.com">
+
+<button onclick="runDiscovery()">
 Run Discovery Scan
 </button>
 
-<div id="discoveryResults"></div>
+</div>
+
+<div id="scanResults" class="results">
+
+<p>No scan performed yet.</p>
+
+</div>
 
 </section>
 
-<script src="../js/attack-surface.js"></script>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<h4>Cyber-Node</h4>
+
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="dashboard.html">Dashboard</a>
+
+</div>
+
+<div>
+
+<h4>Security Tools</h4>
+
+<a href="tools/security-scan.html">Security Scan</a>
+<a href="tools/attack-surface.html">Attack Surface</a>
+
+</div>
+
+<div>
+
+<h4>Resources</h4>
+
+<a href="resources.html">Security Guides</a>
+<a href="case-studies.html">Case Studies</a>
+
+</div>
+
+<div>
+
+<h4>Contact</h4>
+
+<a href="#">Schedule Consultation</a>
+<a href="#">security@cyber-node.com</a>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+Cyber-Node © 2026
+
+</div>
+
+</footer>
+
+<script src="js/attack-surface.js"></script>
 
 </body>
+
 </html>
