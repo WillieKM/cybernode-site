@@ -191,7 +191,33 @@ color:white;
 <!-- METRICS -->
 
 <section class="dashboard-metrics">
+<section class="domain-scanner">
 
+<h2>Domain Attack Surface Scan</h2>
+
+<p>Enter a domain to analyze its security exposure.</p>
+
+<div class="scanner-box">
+
+<input
+type="text"
+id="domainInput"
+placeholder="Enter domain (example.com)"
+>
+
+<button onclick="runDomainScan()">
+Run Security Scan
+</button>
+
+</div>
+
+<div id="scanResults" class="scan-results">
+
+<p>No scan performed yet.</p>
+
+</div>
+
+</section>
 <div class="metric-card">
 <h3>Active Domains</h3>
 <p id="domainsCount">3</p>
