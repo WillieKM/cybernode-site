@@ -1142,3 +1142,18 @@ background:#0f1f3d;
 padding:25px;
 border-radius:10px;
 }
+/* ATTACK SURFACE MAP */
+
+.surface-map{
+max-width:1100px;
+margin:80px auto;
+padding:0 20px;
+text-align:center;
+}
+
+#networkMap{
+height:450px;
+background:#0f1f3d;
+border-radius:10px;
+margin-top:20px;
+}
