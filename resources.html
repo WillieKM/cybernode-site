@@ -62,12 +62,41 @@ margin-bottom:10px;
 color:#cbd7ff;
 }
 
+/* STATS */
+
+.stats{
+max-width:1100px;
+margin:60px auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+padding:0 20px;
+}
+
+.stat{
+background:#0f1f3d;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+.stat h2{
+color:#2D8FE3;
+font-size:36px;
+margin-bottom:10px;
+}
+
+.stat p{
+color:#cbd7ff;
+font-size:14px;
+}
+
 /* RESOURCE GRID */
 
 .resources{
 max-width:1200px;
 margin:auto;
-padding:60px 20px;
+padding:40px 20px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
@@ -103,16 +132,30 @@ background:#2D8FE3;
 color:white;
 border-radius:6px;
 cursor:pointer;
-font-size:13px;
 }
 
-/* CATEGORY TITLE */
+/* ALERTS */
 
-.section-title{
-max-width:1200px;
-margin:60px auto 0;
-padding:0 20px;
-font-size:22px;
+.alerts{
+background:#0f1f3d;
+padding:60px 20px;
+margin-top:40px;
+}
+
+.alert-container{
+max-width:1000px;
+margin:auto;
+}
+
+.alert{
+background:#08152b;
+padding:20px;
+margin-bottom:15px;
+border-left:4px solid #2D8FE3;
+border-radius:6px;
+}
+
+.alert strong{
 color:#8fb3ff;
 }
 
@@ -122,11 +165,6 @@ color:#8fb3ff;
 text-align:center;
 padding:80px 20px;
 background:#0f1f3d;
-margin-top:60px;
-}
-
-.cta h2{
-margin-bottom:10px;
 }
 
 .cta button{
@@ -167,10 +205,6 @@ margin-bottom:6px;
 font-size:14px;
 }
 
-.footer a:hover{
-color:white;
-}
-
 .footer-bottom{
 text-align:center;
 margin-top:40px;
@@ -208,95 +242,85 @@ color:#7a8cb3;
 
 <h1>Cybersecurity Resources</h1>
 
-<p>
-Insights, guides, and security tools to help organizations improve their cybersecurity posture.
-</p>
+<p>Insights, tools, and research to strengthen your organization's security posture.</p>
 
 </section>
 
-<!-- GUIDES -->
+<!-- SECURITY STATS -->
 
-<div class="section-title">Security Guides</div>
+<section class="stats">
+
+<div class="stat">
+<h2>43%</h2>
+<p>of cyber attacks target small businesses</p>
+</div>
+
+<div class="stat">
+<h2>$4.45M</h2>
+<p>average global cost of a data breach</p>
+</div>
+
+<div class="stat">
+<h2>95%</h2>
+<p>of breaches are caused by human error</p>
+</div>
+
+<div class="stat">
+<h2>277 Days</h2>
+<p>average time to detect a breach</p>
+</div>
+
+</section>
+
+<!-- RESOURCE GUIDES -->
 
 <section class="resources">
 
 <div class="resource-card">
-
 <h3>Cybersecurity Risk Assessment Guide</h3>
-
-<p>
-Learn how organizations identify and prioritize cybersecurity risks across networks, systems, and cloud environments.
-</p>
-
+<p>Learn how organizations identify and prioritize cybersecurity risks.</p>
 <button>Read Guide</button>
-
 </div>
 
 <div class="resource-card">
-
 <h3>Common Web Application Vulnerabilities</h3>
-
-<p>
-Understand the most common security weaknesses discovered during penetration testing and security assessments.
-</p>
-
+<p>Understand the most common security weaknesses discovered during testing.</p>
 <button>View Article</button>
-
 </div>
 
 <div class="resource-card">
-
 <h3>Compliance Readiness Checklist</h3>
+<p>Prepare for security frameworks like NIST, HIPAA, and SOC2.</p>
+<button>Download</button>
+</div>
 
-<p>
-Prepare your organization for cybersecurity compliance frameworks such as NIST, HIPAA, and SOC 2.
-</p>
-
-<button>Download Checklist</button>
-
+<div class="resource-card">
+<h3>Ransomware Prevention Guide</h3>
+<p>Learn how businesses protect themselves from ransomware attacks.</p>
+<button>Read Guide</button>
 </div>
 
 </section>
 
-<!-- SECURITY TOOLS -->
+<!-- SECURITY ALERTS -->
 
-<div class="section-title">Security Tools</div>
+<section class="alerts">
 
-<section class="resources">
+<div class="alert-container">
 
-<div class="resource-card">
+<h2>Latest Security Alerts</h2>
 
-<h3>Free Security Risk Scanner</h3>
-
-<p>
-Run a quick security evaluation to see how vulnerable your organization may be to cyber threats.
-</p>
-
-<button onclick="location.href='scanner.html'">Run Security Scan</button>
-
+<div class="alert">
+<strong>Critical:</strong> New ransomware campaigns targeting healthcare organizations.
 </div>
 
-<div class="resource-card">
-
-<h3>Password Security Guide</h3>
-
-<p>
-Best practices for creating strong passwords and implementing secure authentication systems.
-</p>
-
-<button>Learn More</button>
-
+<div class="alert">
+<strong>Warning:</strong> Exploits discovered in outdated WordPress plugins.
 </div>
 
-<div class="resource-card">
-
-<h3>Ransomware Prevention Guide</h3>
-
-<p>
-Learn how businesses defend against ransomware attacks through backups, monitoring, and security awareness.
-</p>
-
-<button>Read Guide</button>
+<div class="alert">
+<strong>Advisory:</strong> Increased phishing campaigns using AI-generated emails.
+</div>
 
 </div>
 
@@ -306,16 +330,14 @@ Learn how businesses defend against ransomware attacks through backups, monitori
 
 <section class="cta">
 
-<h2>Need Help Securing Your Organization?</h2>
+<h2>Run a Free Security Assessment</h2>
 
-<p>
-Cyber-Node provides security assessments, compliance consulting, and infrastructure protection.
-</p>
+<p>Identify vulnerabilities in your organization's infrastructure.</p>
 
 <br>
 
-<button onclick="location.href='contact.html'">
-Schedule Security Consultation
+<button onclick="location.href='scanner.html'">
+Run Security Scan
 </button>
 
 </section>
@@ -327,44 +349,31 @@ Schedule Security Consultation
 <div class="footer-grid">
 
 <div>
-
 <h4>Cyber-Node</h4>
-
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="case-studies.html">Case Studies</a>
-
+<a href="#">Home</a>
+<a href="#">Services</a>
+<a href="#">Case Studies</a>
+<a href="#">Resources</a>
 </div>
 
 <div>
-
 <h4>Security Services</h4>
-
-<a href="#">Security Assessments</a>
-<a href="#">Infrastructure Audits</a>
+<a href="#">Security Audits</a>
+<a href="#">Infrastructure Protection</a>
 <a href="#">Compliance Consulting</a>
-<a href="#">Automation Security</a>
-
 </div>
 
 <div>
-
 <h4>Resources</h4>
-
 <a href="#">Security Guides</a>
+<a href="#">Threat Alerts</a>
 <a href="#">Security Tools</a>
-<a href="#">Cybersecurity Blog</a>
-
 </div>
 
 <div>
-
 <h4>Contact</h4>
-
 <a href="#">Schedule Consultation</a>
 <a href="#">support@cyber-node.com</a>
-
 </div>
 
 </div>
