@@ -1,43 +1,109 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Contact | Cyber-Node</title>
+
 <link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* CONTACT SECTION */
+
+.contact-section{
+padding:120px 20px;
+text-align:center;
+background:linear-gradient(135deg,#1e3a8a,#020617);
+}
+
+.contact-container{
+max-width:700px;
+margin:auto;
+background:#0f1f3d;
+padding:50px;
+border-radius:12px;
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+.contact-container h1{
+margin-bottom:10px;
+}
+
+.contact-container p{
+margin-bottom:30px;
+opacity:0.8;
+}
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:14px;
+border-radius:6px;
+border:none;
+font-size:15px;
+}
+
+.contact-form textarea{
+min-height:120px;
+resize:none;
+}
+
+.contact-form button{
+background:#2D8FE3;
+border:none;
+padding:14px;
+border-radius:6px;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+background:#1c6fc4;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<section class="hero">
+<!-- CONTACT -->
 
-<h2>Contact Cyber-Node</h2>
+<section class="contact-section">
+
+<div class="contact-container">
+
+<h1>Contact Cyber-Node</h1>
 
 <p>Phone: 253-374-9087</p>
 
-<form>
+<form class="contact-form">
 
-<input type="text" placeholder="Name" required>
+<input type="text" placeholder="Your Name" required>
 
-<input type="email" placeholder="Email" required>
+<input type="email" placeholder="Email Address" required>
 
-<textarea placeholder="Message"></textarea>
+<textarea placeholder="How can we help?" required></textarea>
 
-<button type="submit" class="btn">Send</button>
+<button type="submit">Send Message</button>
 
 </form>
+
+</div>
 
 </section>
 
 </body>
+
 </html>
-<form id="leadForm">
-
-<input type="text" name="name" placeholder="Name" required>
-
-<input type="email" name="email" placeholder="Email" required>
-
-<textarea name="message" placeholder="How can we help?"></textarea>
-
-<button class="btn-primary">Send</button>
-
-</form>
