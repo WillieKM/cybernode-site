@@ -6,41 +6,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Services | Cyber-Node</title>
+<title>Security Risk Check | Cyber-Node</title>
 
 <link rel="stylesheet" href="css/style.css">
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+
+.security-check{
+padding:100px 20px;
+text-align:center;
+}
+
+.security-form{
+max-width:600px;
+margin:40px auto;
+display:grid;
+gap:15px;
+}
+
+.security-form select,
+.security-form input{
+padding:12px;
+border-radius:6px;
+border:1px solid rgba(255,255,255,0.1);
+background:#0f172a;
+color:white;
+}
+
+.score-result{
+margin-top:30px;
+font-size:20px;
+color:#3b82f6;
+}
+
+</style>
+
 </head>
+
 
 
 <body>
 
 
-<nav class="navbar">
+<header class="navbar">
 
-<div class="nav-container">
+<div class="container">
 
 <div class="logo">Cyber-Node</div>
 
-<ul class="nav-menu">
+<nav>
 
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-<li><a href="case-studies.html">Case Studies</a></li>
-<li><a href="resources.html">Resources</a></li>
-<li><a href="dashboard.html">Dashboard</a></li>
-
-<li>
-<a href="contact.html" class="contact-btn">Contact</a>
-</li>
-
-</ul>
-
-</div>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="pricing.html">Pricing</a>
+<a href="case-studies.html">Case Studies</a>
+<a href="dashboard.html">Dashboard</a>
 
 </nav>
+
+</div>
 
 </header>
 
@@ -50,13 +76,11 @@
 
 <div class="container">
 
-<h1>Cybersecurity & Automation Services</h1>
+<h1>Cybersecurity Risk Check</h1>
 
 <p>
-
-Cyber-Node helps organizations identify security risks,
-automate workflows, and strengthen cybersecurity posture.
-
+Answer a few quick questions to evaluate your organization's
+cybersecurity posture.
 </p>
 
 </div>
@@ -65,340 +89,73 @@ automate workflows, and strengthen cybersecurity posture.
 
 
 
-<section class="section">
-
-<div class="container">
-
-<h2>Cybersecurity Services</h2>
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>Cybersecurity Risk Assessment</h3>
-
-<p>
-Comprehensive evaluation of infrastructure,
-applications, and compliance posture.
-</p>
-
-<ul>
-
-<li>Infrastructure vulnerability scanning</li>
-<li>Security architecture review</li>
-<li>Compliance readiness assessment</li>
-<li>Detailed remediation roadmap</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Penetration Testing</h3>
-
-<p>
-Simulated cyber attacks designed to identify
-security weaknesses before attackers do.
-</p>
-
-<ul>
-
-<li>Web application testing</li>
-<li>Network penetration testing</li>
-<li>Exploit simulation</li>
-<li>Executive security report</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Compliance Consulting</h3>
-
-<p>
-Prepare your organization for regulatory
-and industry security frameworks.
-</p>
-
-<ul>
-
-<li>HIPAA readiness assessments</li>
-<li>NIST framework implementation</li>
-<li>SOC2 preparation</li>
-<li>Security documentation</li>
-
-</ul>
-
-</div>
-
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section section-alt">
-
-<div class="container">
-
-<h2>Automation Security Solutions</h2>
-
-<p>
-
-Cyber-Node builds automation systems that
-reduce manual processes and improve
-security monitoring and compliance operations.
-
-</p>
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>Workflow Automation Security</h3>
-
-<ul>
-
-<li>Secure document workflows</li>
-<li>Automated compliance tracking</li>
-<li>Security alert automation</li>
-<li>Cloud-based workflow systems</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Compliance Automation Platforms</h3>
-
-<ul>
-
-<li>Automated HIPAA compliance tracking</li>
-<li>Policy management systems</li>
-<li>Audit readiness dashboards</li>
-<li>Security documentation automation</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>Operations Security Automation</h3>
-
-<ul>
-
-<li>Security monitoring dashboards</li>
-<li>Automated vulnerability reporting</li>
-<li>Infrastructure monitoring alerts</li>
-<li>Centralized security visibility</li>
-
-</ul>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container">
-
-<h2>Automation Implementation Process</h2>
-
-<div class="grid">
-
-
-<div class="card">
-
-<h3>1. Security Assessment</h3>
-
-<p>
-
-We evaluate existing infrastructure,
-security policies, and workflows.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>2. Automation Design</h3>
-
-<p>
-
-We design automation systems that
-secure workflows and improve operations.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>3. Implementation</h3>
-
-<p>
-
-Cyber-Node deploys automation tools
-and monitoring systems.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>4. Continuous Monitoring</h3>
-
-<p>
-
-Security dashboards monitor systems
-and detect vulnerabilities in real-time.
-
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-</section>  
 <section class="security-check">
 
-<div class="security-wrapper">
-
-<div class="security-left">
-
-<h2>Free Security Risk Check</h2>
-<p>Answer a few quick questions to see how secure your business is.</p>
-
-<form id="riskForm">
-
-<div class="form-group">
-<label>Multi-Factor Authentication</label>
-<select name="mfa">
-<option value="0">Yes</option>
-<option value="20">No</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Company Managed Devices</label>
-<select name="devices">
-<option value="0">Yes</option>
-<option value="15">No</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Regular Data Backups</label>
-<select name="backup">
-<option value="0">Yes</option>
-<option value="15">No</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Cybersecurity Training</label>
-<select name="training">
-<option value="0">Yes</option>
-<option value="15">No</option>
-</select>
-</div>
-
-<div class="form-group">
-<label>Endpoint Protection</label>
-<select name="antivirus">
-<option value="0">Yes</option>
-<option value="15">No</option>
-</select>
-</div>
-
-<button type="button" onclick="calculateRisk()" class="scan-btn">
-Run Security Scan
-</button>
-
-</form>
-
-</div>
-
-<div class="security-right">
-
-<h3>Security Risk Report</h3>
-
-<div class="risk-score" id="riskScore">
-Score: --
-</div>
-
-<div class="risk-level" id="riskLevel">
-Risk Level: --
-</div>
-
-<div class="recommendations" id="recommendations">
-Complete the scan to see recommendations.
-</div>
-
-<a href="contact.html" class="audit-btn">
-Schedule Full Security Audit
-</a>
-
-</div>
-
-</div>
-
-</section>
-<section class="cta section-alt">
-
 <div class="container">
 
-<h2>Start Strengthening Your Security</h2>
+<h2>Cyber-Node Security Score Tool</h2>
 
-<p>
+<div class="security-form">
 
-Run a free security scan or schedule a consultation
-to evaluate your cybersecurity risks.
+<select id="industry">
 
-</p>
+<option value="">Select Industry</option>
+<option value="10">Healthcare</option>
+<option value="15">Government Contractor</option>
+<option value="8">Technology</option>
+<option value="12">Finance</option>
+<option value="5">Other</option>
 
-<a href="tools/security-scan.html" class="btn-primary">
+</select>
 
-Run Free Security Scan
 
-</a>
+<select id="companySize">
+
+<option value="">Company Size</option>
+<option value="5">1-10 Employees</option>
+<option value="10">11-50 Employees</option>
+<option value="15">51-200 Employees</option>
+<option value="20">200+ Employees</option>
+
+</select>
+
+
+<select id="monitoring">
+
+<option value="">Security Monitoring</option>
+<option value="20">No Monitoring</option>
+<option value="10">Basic Monitoring</option>
+<option value="0">Advanced SOC Monitoring</option>
+
+</select>
+
+
+<select id="compliance">
+
+<option value="">Compliance Program</option>
+<option value="20">None</option>
+<option value="10">Partial</option>
+<option value="0">Fully Implemented</option>
+
+</select>
+
+
+<input id="email" type="email" placeholder="Email to receive report">
+
+
+<button onclick="calculateScore()" class="btn-primary">
+Calculate Security Score
+</button>
+
+</div>
+
+
+
+<div id="score-result" class="score-result"></div>
+
+<button onclick="downloadReport()" class="btn-primary" id="downloadBtn" style="display:none;">
+Download Security Report
+</button>
 
 </div>
 
@@ -408,80 +165,89 @@ Run Free Security Scan
 
 <footer class="footer">
 
-<div class="container footer-grid">
-
-
-<div>
-
-<h3>Cyber-Node</h3>
-
-<p>
-
-Cybersecurity intelligence platform providing
-security assessments, automation systems,
-and infrastructure monitoring.
-
-</p>
-
-</div>
-
-
-
-<div>
-
-<h4>Platform</h4>
-
-<ul>
-
-<li><a href="tools/security-scan.html">Security Scan</a></li>
-<li><a href="dashboard.html">Security Dashboard</a></li>
-
-</ul>
-
-</div>
-
-
-
-<div>
-
-<h4>Services</h4>
-
-<ul>
-
-<li><a href="services.html">Cybersecurity Services</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-
-</ul>
-
-</div>
-
-
-
-<div>
-
-<h4>Contact</h4>
-
-<ul>
-
-<li>Email: security@cyber-node.com</li>
-<li>Consultation</li>
-
-</ul>
-
-</div>
-
-
-
-</div>
-
-
-<div class="footer-bottom">
+<div class="container">
 
 <p>Cyber-Node © 2026</p>
 
 </div>
 
 </footer>
+
+
+
+<script>
+
+let latestScore = 0
+let latestLevel = ""
+let latestRecommendation = ""
+
+function calculateScore(){
+
+let industry = parseInt(document.getElementById("industry").value || 0)
+let companySize = parseInt(document.getElementById("companySize").value || 0)
+let monitoring = parseInt(document.getElementById("monitoring").value || 0)
+let compliance = parseInt(document.getElementById("compliance").value || 0)
+
+let risk = industry + companySize + monitoring + compliance
+let score = 100 - risk
+
+let level = "Low Risk"
+let recommendation = "Security Monitoring"
+
+if(score < 70){
+level = "Moderate Risk"
+recommendation = "Security Risk Assessment"
+}
+
+if(score < 50){
+level = "High Risk"
+recommendation = "Penetration Testing"
+}
+
+latestScore = score
+latestLevel = level
+latestRecommendation = recommendation
+
+document.getElementById("score-result").innerHTML = `
+<h3>Your Security Score: ${score}/100</h3>
+<p><strong>Risk Level:</strong> ${level}</p>
+<p><strong>Recommended Service:</strong> ${recommendation}</p>
+`
+
+document.getElementById("downloadBtn").style.display="inline-block"
+
+}
+
+
+
+function downloadReport(){
+
+const { jsPDF } = window.jspdf
+const doc = new jsPDF()
+
+doc.setFontSize(20)
+doc.text("Cyber-Node Security Assessment Report",20,30)
+
+doc.setFontSize(12)
+
+doc.text("Security Score: " + latestScore + "/100",20,60)
+doc.text("Risk Level: " + latestLevel,20,70)
+doc.text("Recommended Service: " + latestRecommendation,20,80)
+
+doc.text("Summary:",20,100)
+
+doc.text(
+"Based on your responses, Cyber-Node identified potential security risks within your organization's infrastructure. A full cybersecurity assessment is recommended to further evaluate vulnerabilities and compliance readiness.",
+20,
+110,
+{maxWidth:160}
+)
+
+doc.save("CyberNode-Security-Report.pdf")
+
+}
+
+</script>
 
 
 
