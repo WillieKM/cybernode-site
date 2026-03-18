@@ -1418,4 +1418,39 @@ border-radius:6px;
 font-size:12px;
 display:inline-block;
 margin-bottom:10px;
+}/* SCANNER CARD */
+.scanner-card{
+grid-column: span 2;
+text-align:center;
+}
+
+.scanner-sub{
+opacity:0.8;
+margin-bottom:20px;
+}
+
+.scanner-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.scanner-box input{
+padding:12px;
+width:260px;
+border:none;
+border-radius:6px;
+}
+
+.scan-result{
+margin-top:20px;
+opacity:0.8;
+}
+
+/* GRID FIX (VERY IMPORTANT) */
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
 }
