@@ -1454,3 +1454,9 @@ display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:20px;
 }
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(10px);
+}
