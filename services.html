@@ -4,26 +4,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Cyber-Node</title>
+
+<title>Cybersecurity & Automation Services | Cyber-Node</title>
 
 <link rel="stylesheet" href="css/style.css">
 
 <style>
 
-/* SECTION SPACING */
+/* GENERAL */
 .section{
 padding:100px 20px;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:10px;
+}
+
+.section-sub{
+text-align:center;
+opacity:0.75;
+max-width:700px;
+margin:0 auto 40px;
 }
 
 /* HERO */
 .hero{
 text-align:center;
-padding:120px 20px 100px;
+padding:120px 20px;
 background:linear-gradient(135deg,#1e3a8a,#020617);
 }
 
 .hero h1{
-font-size:42px;
+font-size:44px;
 margin-bottom:15px;
 }
 
@@ -31,14 +44,22 @@ margin-bottom:15px;
 max-width:650px;
 margin:auto;
 opacity:0.85;
+margin-bottom:25px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
 /* GRID */
 .grid{
 max-width:1100px;
-margin:50px auto 0;
+margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
@@ -49,46 +70,25 @@ padding:25px;
 border-radius:12px;
 border:1px solid rgba(255,255,255,0.05);
 transition:0.3s;
+position:relative;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 border-color:#3b82f6;
 }
 
-.card h3{
+.price-tag{
+color:#3b82f6;
+font-weight:bold;
 margin-bottom:10px;
 }
 
-.card p{
-opacity:0.8;
-margin-bottom:10px;
-}
-
-.card ul{
-padding-left:18px;
-}
-
-.card li{
-margin-bottom:6px;
-color:#cbd5e1;
-}
-
-/* SECTION TITLE */
-.section-title{
+/* TRUST BAR */
+.trust{
 text-align:center;
-margin-bottom:10px;
-}
-
-.section-sub{
-text-align:center;
-opacity:0.75;
-margin-bottom:20px;
-}
-
-/* PROCESS STEPS */
-.process .card{
-text-align:center;
+opacity:0.7;
+margin-top:20px;
 }
 
 /* CTA */
@@ -110,50 +110,85 @@ background:linear-gradient(135deg,#1e293b,#020617);
 <h1>Cybersecurity & Automation Services</h1>
 
 <p>
-Cyber-Node helps organizations identify risks, automate workflows, 
-and strengthen cybersecurity posture with scalable solutions.
+Protect your business, automate compliance, and eliminate vulnerabilities 
+before attackers exploit them.
+</p>
+
+<div class="hero-buttons">
+
+<a href="risk-check.html" class="btn-primary">Run Free Risk Check</a>
+<a href="contact.html" class="btn-secondary">Book Consultation</a>
+
+</div>
+
+<p class="trust">
+Trusted by healthcare providers, SMBs, and growing organizations
 </p>
 
 </section>
 
-<!-- CYBERSECURITY -->
+<!-- SERVICES -->
 <section class="section">
 
-<h2 class="section-title">Cybersecurity Services</h2>
+<h2 class="section-title">Core Cybersecurity Services</h2>
+
+<p class="section-sub">
+Identify vulnerabilities, test defenses, and prepare for compliance.
+</p>
 
 <div class="grid">
 
 <div class="card">
+
+<div class="price-tag">Starting at $3,500</div>
+
 <h3>Security Risk Assessment</h3>
-<p>Comprehensive evaluation of your security posture.</p>
+
 <ul>
 <li>Infrastructure vulnerability scanning</li>
-<li>Security architecture review</li>
-<li>Compliance readiness (HIPAA / NIST)</li>
+<li>Security posture evaluation</li>
+<li>Compliance gap analysis</li>
 <li>Detailed remediation roadmap</li>
 </ul>
+
+<a href="contact.html" class="btn-primary">Request Assessment</a>
+
 </div>
 
+
 <div class="card">
+
+<div class="price-tag">$7,500 – $15,000</div>
+
 <h3>Penetration Testing</h3>
-<p>Simulated attacks to identify exploitable weaknesses.</p>
+
 <ul>
-<li>Web application testing</li>
-<li>Network penetration testing</li>
+<li>Web + network penetration testing</li>
 <li>Exploit simulation</li>
+<li>Vulnerability prioritization</li>
 <li>Executive security report</li>
 </ul>
+
+<a href="contact.html" class="btn-primary">Schedule Testing</a>
+
 </div>
 
+
 <div class="card">
+
+<div class="price-tag">Custom Pricing</div>
+
 <h3>Compliance Consulting</h3>
-<p>Prepare for regulatory and industry frameworks.</p>
+
 <ul>
-<li>HIPAA readiness</li>
-<li>NIST implementation</li>
+<li>HIPAA / NIST readiness</li>
 <li>SOC2 preparation</li>
 <li>Security documentation</li>
+<li>Audit preparation support</li>
 </ul>
+
+<a href="contact.html" class="btn-primary">Start Compliance Plan</a>
+
 </div>
 
 </div>
@@ -163,39 +198,56 @@ and strengthen cybersecurity posture with scalable solutions.
 <!-- AUTOMATION -->
 <section class="section">
 
-<h2 class="section-title">Automation Security Solutions</h2>
+<h2 class="section-title">Automation & Security Systems</h2>
 
 <p class="section-sub">
-Reduce manual work and improve compliance through automation.
+Reduce manual work and build scalable, secure systems.
 </p>
 
 <div class="grid">
 
 <div class="card">
-<h3>Workflow Automation Security</h3>
+
+<div class="price-tag">$500 – $2,000 / month</div>
+
+<h3>Security Monitoring</h3>
+
 <ul>
-<li>Secure document workflows</li>
-<li>Automated compliance tracking</li>
-<li>Cloud-based systems</li>
+<li>Continuous threat monitoring</li>
+<li>Real-time alerts</li>
+<li>Incident response support</li>
 </ul>
+
 </div>
 
-<div class="card">
-<h3>Compliance Automation Platforms</h3>
-<ul>
-<li>HIPAA-ready systems</li>
-<li>Policy management tools</li>
-<li>Audit tracking dashboards</li>
-</ul>
-</div>
 
 <div class="card">
-<h3>Operations Security Automation</h3>
+
+<div class="price-tag">$800 – $2,500 / month</div>
+
+<h3>Compliance Automation</h3>
+
 <ul>
-<li>Real-time monitoring dashboards</li>
-<li>Automated vulnerability tracking</li>
-<li>Continuous security alerts</li>
+<li>Policy tracking systems</li>
+<li>Audit-ready documentation</li>
+<li>Compliance dashboards</li>
 </ul>
+
+</div>
+
+
+<div class="card">
+
+<div class="price-tag">$1,500 – $4,000 setup</div>
+
+<h3>Automation Platforms</h3>
+
+<ul>
+<li>Workflow automation systems</li>
+<li>Secure document flows</li>
+<li>Cloud-based compliance tools</li>
+</ul>
+
 </div>
 
 </div>
@@ -203,74 +255,62 @@ Reduce manual work and improve compliance through automation.
 </section>
 
 <!-- PROCESS -->
-<section class="section process">
-
-<h2 class="section-title">Automation Implementation Process</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>1. Security Assessment</h3>
-<p>We evaluate infrastructure and security risks.</p>
-</div>
-
-<div class="card">
-<h3>2. Automation Design</h3>
-<p>We build solutions tailored to your workflows.</p>
-</div>
-
-<div class="card">
-<h3>3. Implementation</h3>
-<p>Deploy automation tools and monitoring systems.</p>
-</div>
-
-<div class="card">
-<h3>4. Continuous Monitoring</h3>
-<p>Real-time alerts and security optimization.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- TOOL SECTION -->
 <section class="section">
 
-<h2 class="section-title">Free Cybersecurity Risk Check</h2>
-
-<p class="section-sub">
-Instantly evaluate your security posture.
-</p>
+<h2 class="section-title">How We Secure Your Organization</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>Run Free Assessment</h3>
-<p>Use our security score tool to identify risks.</p>
-<a href="risk-check.html" class="btn-primary">Start Assessment</a>
+<h3>1. Assess</h3>
+<p>Identify vulnerabilities and risks</p>
 </div>
 
 <div class="card">
-<h3>Security Report</h3>
-<p>Get a detailed report with recommendations.</p>
-<a href="pricing.html" class="btn-primary">View Pricing</a>
+<h3>2. Test</h3>
+<p>Simulate real-world attacks</p>
+</div>
+
+<div class="card">
+<h3>3. Secure</h3>
+<p>Implement protections and automation</p>
+</div>
+
+<div class="card">
+<h3>4. Monitor</h3>
+<p>Continuous threat detection and response</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- TOOL CTA -->
+<section class="section">
 
-<h2>Start Strengthening Your Security</h2>
+<h2 class="section-title">Start with a Free Security Scan</h2>
 
-<p>
-Run a free scan or schedule a consultation with Cyber-Node today.
+<p class="section-sub">
+Get instant insight into your organization’s security posture.
 </p>
 
-<a href="tools/security-scan.html" class="btn-primary">
-Run Free Security Scan
+<div style="text-align:center;">
+<a href="risk-check.html" class="btn-primary">Run Free Risk Check</a>
+</div>
+
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+
+<h2>Ready to Secure Your Business?</h2>
+
+<p>
+Run a free assessment or speak with a cybersecurity expert today.
+</p>
+
+<a href="contact.html" class="btn-primary">
+Schedule Consultation
 </a>
 
 </section>
