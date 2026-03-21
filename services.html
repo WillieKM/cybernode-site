@@ -14,134 +14,228 @@
 
 <style>
 
-.security-check{
-padding:100px 20px;
+/* NAVBAR */
+.navbar{
+background:#020617;
+padding:15px 30px;
+border-bottom:1px solid rgba(255,255,255,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-weight:600;
+font-size:18px;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:#cbd5e1;
+text-decoration:none;
+font-size:14px;
+}
+
+.nav-links a:hover{
+color:#3b82f6;
+}
+
+.nav-cta{
+background:#3b82f6;
+padding:8px 16px;
+border-radius:6px;
+color:white;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
 text-align:center;
+padding:90px 20px 60px;
+background:linear-gradient(135deg,#1e3a8a,#020617);
+}
+
+.hero h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.hero-sub{
+max-width:600px;
+margin:auto;
+opacity:0.85;
+margin-bottom:25px;
+line-height:1.6;
+}
+
+.hero-actions{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn-secondary{
+border:1px solid #3b82f6;
+padding:12px 20px;
+border-radius:6px;
+color:#3b82f6;
+text-decoration:none;
+}
+
+.btn-secondary:hover{
+background:#3b82f6;
+color:white;
+}
+
+/* TOOL SECTION */
+.security-check{
+padding:70px 20px;
+text-align:center;
+background:#020617;
 }
 
 .security-form{
 max-width:600px;
-margin:40px auto;
+margin:30px auto;
 display:grid;
 gap:15px;
 }
 
 .security-form select,
 .security-form input{
-padding:12px;
-border-radius:6px;
+padding:14px;
+border-radius:8px;
 border:1px solid rgba(255,255,255,0.1);
-background:#0f172a;
+background:#111827;
 color:white;
 }
 
-.score-result{
+/* RESULT CARD */
+.result-card{
 margin-top:30px;
-font-size:20px;
-color:#3b82f6;
+background:#111827;
+padding:25px;
+border-radius:12px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+text-align:left;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* FOOTER */
+.footer{
+background:#020617;
+padding:40px;
+text-align:center;
+opacity:0.7;
 }
 
 </style>
 
 </head>
 
-
-
 <body>
 
-
+<!-- NAVBAR -->
 <header class="navbar">
 
-<div class="container">
+<div class="nav-container">
 
 <div class="logo">Cyber-Node</div>
 
-<nav>
-
+<nav class="nav-links">
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="pricing.html">Pricing</a>
 <a href="case-studies.html">Case Studies</a>
 <a href="dashboard.html">Dashboard</a>
-
 </nav>
+
+<a href="contact.html" class="nav-cta">Contact</a>
 
 </div>
 
 </header>
 
 
-
+<!-- HERO -->
 <section class="hero">
-
-<div class="container">
 
 <h1>Cybersecurity Risk Check</h1>
 
-<p>
-Answer a few quick questions to evaluate your organization's
-cybersecurity posture.
+<p class="hero-sub">
+Quickly assess your organization's security posture and identify risks 
+before they become costly breaches.
 </p>
+
+<div class="hero-actions">
+
+<a href="#tool" class="btn-primary">
+Start Free Assessment
+</a>
+
+<a href="contact.html" class="btn-secondary">
+Talk to an Expert
+</a>
 
 </div>
 
 </section>
 
 
-
-<section class="security-check">
-
-<div class="container">
+<!-- TOOL -->
+<section id="tool" class="security-check">
 
 <h2>Cyber-Node Security Score Tool</h2>
 
 <div class="security-form">
 
 <select id="industry">
-
 <option value="">Select Industry</option>
 <option value="10">Healthcare</option>
 <option value="15">Government Contractor</option>
 <option value="8">Technology</option>
 <option value="12">Finance</option>
 <option value="5">Other</option>
-
 </select>
 
-
 <select id="companySize">
-
 <option value="">Company Size</option>
 <option value="5">1-10 Employees</option>
 <option value="10">11-50 Employees</option>
 <option value="15">51-200 Employees</option>
 <option value="20">200+ Employees</option>
-
 </select>
 
-
 <select id="monitoring">
-
 <option value="">Security Monitoring</option>
 <option value="20">No Monitoring</option>
 <option value="10">Basic Monitoring</option>
 <option value="0">Advanced SOC Monitoring</option>
-
 </select>
 
-
 <select id="compliance">
-
 <option value="">Compliance Program</option>
 <option value="20">None</option>
 <option value="10">Partial</option>
 <option value="0">Fully Implemented</option>
-
 </select>
 
-
 <input id="email" type="email" placeholder="Email to receive report">
-
 
 <button onclick="calculateScore()" class="btn-primary">
 Calculate Security Score
@@ -149,30 +243,20 @@ Calculate Security Score
 
 </div>
 
+<!-- RESULT -->
+<div id="resultCard" class="result-card" style="display:none;"></div>
 
-
-<div id="score-result" class="score-result"></div>
-
-<button onclick="downloadReport()" class="btn-primary" id="downloadBtn" style="display:none;">
+<button onclick="downloadReport()" class="btn-primary" id="downloadBtn" style="display:none; margin-top:15px;">
 Download Security Report
 </button>
-
-</div>
 
 </section>
 
 
-
+<!-- FOOTER -->
 <footer class="footer">
-
-<div class="container">
-
-<p>Cyber-Node © 2026</p>
-
-</div>
-
+Cyber-Node © 2026 — Cybersecurity Intelligence Platform
 </footer>
-
 
 
 <script>
@@ -193,25 +277,42 @@ let score = 100 - risk
 
 let level = "Low Risk"
 let recommendation = "Security Monitoring"
+let color = "lime"
 
 if(score < 70){
 level = "Moderate Risk"
 recommendation = "Security Risk Assessment"
+color = "orange"
 }
 
 if(score < 50){
 level = "High Risk"
 recommendation = "Penetration Testing"
+color = "red"
 }
 
 latestScore = score
 latestLevel = level
 latestRecommendation = recommendation
 
-document.getElementById("score-result").innerHTML = `
-<h3>Your Security Score: ${score}/100</h3>
+document.getElementById("resultCard").style.display = "block"
+
+document.getElementById("resultCard").innerHTML = `
+<h3>Security Assessment Results</h3>
+
+<p><strong>Score:</strong> 
+<span style="color:${color}; font-weight:bold;">
+${score}/100
+</span>
+</p>
+
 <p><strong>Risk Level:</strong> ${level}</p>
 <p><strong>Recommended Service:</strong> ${recommendation}</p>
+
+<p style="margin-top:15px;">
+Cyber-Node recommends taking action to strengthen your security posture 
+and reduce potential vulnerabilities.
+</p>
 `
 
 document.getElementById("downloadBtn").style.display="inline-block"
@@ -219,38 +320,32 @@ document.getElementById("downloadBtn").style.display="inline-block"
 }
 
 
-
 function downloadReport(){
 
 const { jsPDF } = window.jspdf
 const doc = new jsPDF()
 
-doc.setFontSize(20)
-doc.text("Cyber-Node Security Assessment Report",20,30)
+doc.setFontSize(18)
+doc.text("Cyber-Node Security Report",20,30)
 
 doc.setFontSize(12)
 
-doc.text("Security Score: " + latestScore + "/100",20,60)
+doc.text("Score: " + latestScore + "/100",20,60)
 doc.text("Risk Level: " + latestLevel,20,70)
-doc.text("Recommended Service: " + latestRecommendation,20,80)
-
-doc.text("Summary:",20,100)
+doc.text("Recommendation: " + latestRecommendation,20,80)
 
 doc.text(
-"Based on your responses, Cyber-Node identified potential security risks within your organization's infrastructure. A full cybersecurity assessment is recommended to further evaluate vulnerabilities and compliance readiness.",
+"Cyber-Node identified potential security risks. A full assessment is recommended.",
 20,
-110,
+100,
 {maxWidth:160}
 )
 
-doc.save("CyberNode-Security-Report.pdf")
+doc.save("CyberNode-Report.pdf")
 
 }
 
 </script>
 
-
-
 </body>
-
 </html>
