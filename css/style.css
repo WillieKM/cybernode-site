@@ -381,3 +381,41 @@ text-align:center;
 }
 
 }
+/* DROPDOWN */
+.dropdown{
+position:relative;
+cursor:pointer;
+}
+
+.dropdown span{
+color:#cbd5e1;
+font-size:14px;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+top:30px;
+left:0;
+background:#111827;
+border-radius:8px;
+padding:10px;
+min-width:180px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.dropdown-content a{
+display:block;
+padding:8px;
+font-size:14px;
+color:#cbd5e1;
+}
+
+.dropdown-content a:hover{
+color:#3b82f6;
+}
+
+/* SHOW ON HOVER */
+.dropdown:hover .dropdown-content{
+display:block;
+}
