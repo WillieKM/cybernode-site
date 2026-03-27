@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -12,45 +11,20 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </head>
-<script>
 
-function animateValue(id,start,end,duration){
-
-let range=end-start
-let current=start
-let increment=end>start?1:-1
-let stepTime=Math.abs(Math.floor(duration/range))
-
-let obj=document.getElementById(id)
-
-let timer=setInterval(function(){
-
-current+=increment
-obj.innerHTML=current
-
-if(current==end){
-clearInterval(timer)
-}
-
-},stepTime)
-
-}
-
-</script>
 <body>
 
-
-
+<!-- NAVBAR -->
 <header class="navbar">
-
   <div class="nav-container">
 
     <div class="logo">Cyber-Node</div>
 
     <div class="nav-links">
-
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="pricing.html">Pricing</a>
@@ -68,75 +42,48 @@ clearInterval(timer)
 
       <a href="dashboard.html">Dashboard</a>
       <a href="contact.html" class="nav-cta">Contact</a>
-
     </div>
 
   </div>
-
 </header>
 
+<!-- HERO -->
+<section class="hero fade-in">
+  <div class="container">
 
-</div>
+    <h1>Cybersecurity Intelligence & Monitoring Platform</h1>
 
-</nav>
+    <p>
+      Identify vulnerabilities, monitor infrastructure,
+      and strengthen your organization's security posture.
+    </p>
 
-</div>
+    <div class="hero-buttons">
+      <a href="tools/security-scan.html" class="btn-primary">
+        Run Free Security Scan
+      </a>
+      <a href="consultation.html" class="btn-secondary">
+        Schedule Consultation
+      </a>
+    </div>
 
-</header>
-
-
-
-<section class="hero">
-
-<div class="container">
-
-<h1>Cybersecurity Intelligence & Monitoring Platform</h1>
-
-<p>
-
-Identify vulnerabilities, monitor infrastructure,
-and strengthen your organization's security posture with Cyber-Node.
-
-</p>
-
-<div class="hero-buttons">
-
-<a href="tools/security-scan.html" class="btn-primary">
-Run Free Security Scan
-</a>
-
-<a href="consultation.html" class="btn-secondary">
-Schedule Consultation
-</a>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<!-- SCANNER SECTION -->
-<section class="section-alt">
-
+<!-- SCANNER -->
+<section class="section-alt fade-in">
   <div class="container">
 
     <h2 style="text-align:center;">Cyber Security Scanner</h2>
-    <p style="text-align:center; margin-bottom:30px;">
-      Run a quick security analysis on any website.
-    </p>
 
     <div class="tool-container">
 
-      <!-- LEFT SIDE (INPUT) -->
       <div style="text-align:center;">
         <input type="text" placeholder="example.com">
         <button class="btn-primary">Run Security Scan</button>
-        <p style="margin-top:10px; opacity:0.7;">
-          No scan performed yet.
-        </p>
+        <p style="opacity:0.7;">No scan performed yet.</p>
       </div>
 
-      <!-- RIGHT SIDE (INFO) -->
       <div>
         <h3>What We Analyze</h3>
         <ul>
@@ -150,399 +97,217 @@ Schedule Consultation
     </div>
 
   </div>
-
 </section>
 
-</div>
+<!-- FRAMEWORK -->
+<section class="section fade-in">
+  <div class="container">
 
-<div id="scanResult" class="scan-result">
-No scan performed yet.
-</div>
+    <h2>Security Framework Expertise</h2>
 
-</div>
+    <div class="grid">
 
-<section class="trust">
+      <div class="card">NIST Cybersecurity Framework</div>
+      <div class="card">OWASP Security Testing</div>
+      <div class="card">HIPAA Security Compliance</div>
+      <div class="card">Cloud Infrastructure Security</div>
 
-<div class="container">
+    </div>
 
-<h2>Security Framework Expertise</h2>
-
-<div class="grid">
-
-<div class="card">NIST Cybersecurity Framework</div>
-
-<div class="card">OWASP Security Testing</div>
-
-<div class="card">HIPAA Security Compliance</div>
-
-<div class="card">Cloud Infrastructure Security</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- PLATFORM -->
+<section class="section-alt fade-in">
+  <div class="container">
 
+    <h2>Cyber-Node Security Platform</h2>
 
-<section class="platform-overview section-alt">
+    <p>
+      Automated vulnerability scanning, attack surface discovery,
+      and security monitoring in one unified platform.
+    </p>
 
-<div class="container">
-
-<h2>Cyber-Node Security Platform</h2>
-
-<p>
-
-Cyber-Node combines automated vulnerability scanning,
-attack surface discovery, and security monitoring
-into a unified cybersecurity intelligence platform.
-
-</p>
-
-</div>
-
+  </div>
 </section>
 
+<!-- SERVICES -->
+<section class="section fade-in">
+  <div class="container">
 
+    <h2>Core Security Services</h2>
 
-<section class="features section">
+    <div class="grid">
 
-<div class="container">
+      <div class="card">
+        <i class="fa-solid fa-shield-halved"></i>
+        <h3>Security Risk Assessments</h3>
+        <p>Identify vulnerabilities and risks.</p>
+      </div>
 
-<h2>Core Security Services</h2>
+      <div class="card">
+        <i class="fa-solid fa-user-secret"></i>
+        <h3>Penetration Testing</h3>
+        <p>Simulate attacks before hackers do.</p>
+      </div>
 
-<div class="grid">
+      <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Compliance Consulting</h3>
+        <p>Prepare for HIPAA, NIST, and more.</p>
+      </div>
 
-<div class="card">
-<i class="fa-solid fa-shield-halved"></i>
-<h3>Security Risk Assessments</h3>
-<p>Identify infrastructure vulnerabilities and security weaknesses.</p>
-</div>
+      <div class="card">
+        <i class="fa-solid fa-gear"></i>
+        <h3>Workflow Automation</h3>
+        <p>Secure your operations.</p>
+      </div>
 
+    </div>
 
-<div class="card">
-<i class="fa-solid fa-user-secret"></i>
-<h3>Penetration Testing</h3>
-<p>Simulated attacks reveal security gaps before attackers do.</p>
-</div>
-
-
-<div class="card">
-<i class="fa-solid fa-chart-line"></i>
-<h3>Compliance Consulting</h3>
-<p>Prepare for frameworks such as HIPAA and NIST cybersecurity standards.</p>
-</div>
-
-
-<div class="card">
-<i class="fa-solid fa-gear"></i>
-<h3>Workflow Automation</h3>
-<p>Secure automation solutions for compliance and operations.</p>
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- PROCESS -->
+<section class="section-alt fade-in">
+  <div class="container">
 
+    <h2>How Cyber-Node Works</h2>
 
-<section class="process section-alt">
+    <div class="grid">
 
-<div class="container">
+      <div class="card">Scan</div>
+      <div class="card">Detect</div>
+      <div class="card">Report</div>
+      <div class="card">Secure</div>
 
-<h2>How Cyber-Node Works</h2>
+    </div>
 
-<div class="grid">
-
-<div class="card">
-<h3>1. Run Security Scan</h3>
-<p>Analyze your infrastructure and security posture.</p>
-</div>
-
-<div class="card">
-<h3>2. Identify Vulnerabilities</h3>
-<p>Discover weaknesses across systems and applications.</p>
-</div>
-
-<div class="card">
-<h3>3. Generate Security Report</h3>
-<p>Receive actionable remediation recommendations.</p>
-</div>
-
-<div class="card">
-<h3>4. Strengthen Security</h3>
-<p>Implement monitoring and security controls.</p>
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
+<!-- DASHBOARD METRICS -->
+<section class="section fade-in">
+  <div class="container">
 
+    <h2>Security Operations Dashboard</h2>
 
-<section class="dashboard-preview">
+    <div class="grid">
 
-<div class="container">
+      <div class="metric-card">
+        <h3>Threat Alerts</h3>
+        <p id="alerts">0</p>
+      </div>
 
-<h2>Security Operations Dashboard</h2>
+      <div class="metric-card">
+        <h3>Security Score</h3>
+        <p id="score">0</p>
+      </div>
 
-<div class="grid">
+      <div class="metric-card">
+        <h3>Assets</h3>
+        <p id="assets">0</p>
+      </div>
 
-<div class="metric-card">
-<h3>Threat Alerts</h3>
-<p>24</p>
-</div>
+      <div class="metric-card">
+        <h3>Compliance</h3>
+        <p>Active</p>
+      </div>
 
-<div class="metric-card">
-<h3>Security Score</h3>
-<p>92%</p>
-</div>
+    </div>
 
-<div class="metric-card">
-<h3>Attack Surface</h3>
-<p>12 Assets</p>
-</div>
-
-<div class="metric-card">
-<h3>Compliance Status</h3>
-<p>Active</p>
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
-<section class="attack-graph">
-
-<div class="container">
-
-<h2>Attack Surface Visualization</h2>
-
-<p>
-Cyber-Node maps exposed infrastructure assets
-to help identify potential attack vectors.
-</p>
-
-<div id="graph"></div>
-
-</div>
-
+<!-- ATTACK GRAPH -->
+<section class="attack-graph fade-in">
+  <div class="container">
+    <h2>Attack Surface Visualization</h2>
+    <div id="graph"></div>
+  </div>
 </section>
 
 <script src="js/attack-graph.js"></script>
 
-<section class="threat-map section-alt">
-
-<div class="container">
-
-<h2>Global Cyber Threat Activity</h2>
-
-<iframe
-src="https://threatmap.checkpoint.com/"
-width="100%"
-height="420"
-style="border:none;border-radius:10px;">
-</iframe>
-
-</div>
-
+<!-- CTA -->
+<section class="cta section-alt fade-in">
+  <div class="container">
+    <h2>Start Strengthening Your Security</h2>
+    <a href="tools/security-scan.html" class="btn-primary">
+      Run Free Security Scan
+    </a>
+  </div>
 </section>
 
-
-
-<section class="case-highlight">
-
-<div class="container">
-
-<h2>Security Case Study</h2>
-
-<div class="card">
-
-<h3>Healthcare Infrastructure Assessment</h3>
-
-<p>
-
-Cyber-Node identified 42 vulnerabilities and helped improve
-compliance readiness for a healthcare organization.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="pricing-preview section-alt">
-
-<div class="container">
-
-<h2>Security Monitoring Plans</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Starter Monitoring</h3>
-<p>$49/month</p>
-</div>
-
-<div class="card">
-<h3>Professional Monitoring</h3>
-<p>$199/month</p>
-</div>
-
-<div class="card">
-<h3>Enterprise Security</h3>
-<p>$599/month</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<<section class="cta section-sm">
-
-<div class="container">
-
-<h2>Start Strengthening Your Security</h2>
-
-<p>
-Run a free scan or schedule a consultation with Cyber-Node today.
-</p>
-
-<a href="tools/security-scan.html" class="btn-primary">
-Run Free Security Scan
-</a>
-
-</div>
-
-</section>
-
-<section class="security-intelligence section">
-
-<div class="container">
-
-<h2>Live Security Intelligence</h2>
-
-<p>
-Real-time monitoring insights from the Cyber-Node platform.
-</p>
-
-<div class="intel-grid">
-
-<div class="intel-card">
-
-<h3>Threat Alerts</h3>
-<p class="intel-number">24</p>
-
-</div>
-
-<div class="intel-card">
-
-<h3>Blocked Attacks</h3>
-<p class="intel-number">1,342</p>
-
-</div>
-
-<div class="intel-card">
-
-<h3>Active Vulnerabilities</h3>
-<p class="intel-number">8</p>
-
-</div>
-
-<div class="intel-card">
-
-<h3>Security Score</h3>
-<p class="intel-number">92%</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<footer>
-
-
+<!-- FOOTER -->
 <footer class="footer">
+  <div class="container footer-grid">
 
-<div class="container footer-grid">
+    <div>
+      <h3>Cyber-Node</h3>
+      <p>Cybersecurity intelligence platform.</p>
+    </div>
 
-<div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
 
-<h3>Cyber-Node</h3>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>security@cyber-node.com</li>
+      </ul>
+    </div>
 
-<p>
-Cybersecurity intelligence platform providing
-vulnerability scanning, attack surface discovery,
-and security monitoring.
-</p>
+  </div>
 
-</div>
-
-
-<div>
-
-<h4>Platform</h4>
-
-</div>
-
-
-<div>
-
-<h4>Company</h4>
-
-<ul>
-
-<li><a href="services.html">Services</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-<li><a href="case-studies.html">Case Studies</a></li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h4>Contact</h4>
-
-<ul>
-
-<li>Email: security@cyber-node.com</li>
-<li>Security Consultation</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-<p>Cyber-Node © 2026 • Cybersecurity Intelligence Platform</p>
-
-</div>
-
+  <div class="footer-bottom">
+    Cyber-Node © 2026
+  </div>
 </footer>
 
-</footer>
+<!-- ANIMATION SCRIPT -->
+<script>
+
+function animateValue(id, start, end, duration) {
+let range = end - start;
+let current = start;
+let increment = end > start ? 1 : -1;
+let stepTime = Math.abs(Math.floor(duration / range));
+let obj = document.getElementById(id);
+
+let timer = setInterval(function () {
+current += increment;
+obj.innerHTML = current;
+if (current == end) clearInterval(timer);
+}, stepTime);
+}
+
+/* RUN ANIMATIONS */
+window.onload = function(){
+animateValue("alerts",0,24,1000);
+animateValue("score",0,92,1000);
+animateValue("assets",0,12,1000);
+}
+
+/* SCROLL FADE */
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade-in").forEach(el=>{
+observer.observe(el);
+});
+
+</script>
 
 </body>
-
 </html>
