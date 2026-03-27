@@ -50,20 +50,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <!-- HERO -->
 <section class="hero">
   <div class="container">
+
     <h1>Cybersecurity Intelligence & Monitoring Platform</h1>
-    <p>Identify vulnerabilities, monitor infrastructure, and prevent attacks before they happen.</p>
+
+    <p>
+      Identify vulnerabilities, monitor infrastructure, and prevent attacks before they happen.
+    </p>
 
     <div class="hero-buttons">
       <a href="tools/security-scan.html" class="btn-primary">Run Free Scan</a>
       <a href="consultation.html" class="btn-secondary">Schedule Consultation</a>
     </div>
+
   </div>
 </section>
 
+<!-- SOC DASHBOARD -->
 <section class="section-alt">
   <div class="container">
 
-    <h2 style="text-align:center; margin-bottom:40px;">
+    <h2 style="text-align:center;margin-bottom:40px;">
       Security Operations Center
     </h2>
 
@@ -72,48 +78,35 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       <!-- METRICS -->
       <div class="soc-card">
         <h3>Security Metrics</h3>
-        <div class="metric-line">
-          Threat Alerts <span class="danger">24</span>
-        </div>
-        <div class="metric-line">
-          Security Score <span class="success">92%</span>
-        </div>
-        <div class="metric-line">
-          Active Assets <span>12</span>
-        </div>
+        <div class="metric-line">Threat Alerts <span class="danger pulse">24</span></div>
+        <div class="metric-line">Security Score <span class="success">92%</span></div>
+        <div class="metric-line">Active Assets <span>12</span></div>
       </div>
 
       <!-- THREAT FEED -->
       <div class="soc-card">
         <h3>Threat Intelligence</h3>
         <ul class="threat-feed">
-          <li class="danger">CVE-2026-1842 Exploit detected</li>
-          <li class="warning">Suspicious login attempt</li>
-          <li>Open port detected (443)</li>
+          <li class="danger">🚨 CVE-2026-1842 Exploit detected</li>
+          <li class="warning">⚠️ Suspicious login attempt</li>
+          <li>🔍 Open port detected (443)</li>
         </ul>
       </div>
 
-      <!-- ATTACK MAP (FULL WIDTH) -->
+      <!-- ATTACK MAP -->
       <div class="soc-card soc-wide">
         <h3>Live Global Threat Activity</h3>
-
-        <iframe
-        src="https://threatmap.checkpoint.com/"
-        width="100%"
-        height="350"
-        style="border:none;border-radius:10px;">
-        </iframe>
-
+        <iframe src="https://threatmap.checkpoint.com/" height="350"></iframe>
       </div>
 
       <!-- SYSTEM STATUS -->
       <div class="soc-card">
         <h3>System Status</h3>
-        <p class="success">All Systems Operational</p>
+        <p class="success">● All Systems Operational</p>
         <p>Last Scan: 2 mins ago</p>
       </div>
 
-      <!-- ACTIVITY TIMELINE -->
+      <!-- ACTIVITY -->
       <div class="soc-card">
         <h3>Recent Activity</h3>
         <ul class="timeline">
@@ -128,35 +121,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   </div>
 </section>
 
-      <!-- THREAT FEED -->
-      <div class="panel">
-        <h3>Threat Intelligence Feed</h3>
-        <ul class="threat-feed">
-          <li>🚨 CVE-2026-1842 Exploit detected</li>
-          <li>⚠️ Suspicious login attempt</li>
-          <li>🔍 Open port detected (443)</li>
-        </ul>
-      </div>
-
-      <!-- ATTACK MAP PREVIEW -->
-      <div class="panel">
-        <h3>Live Attack Activity</h3>
-        <iframe src="https://threatmap.checkpoint.com/" height="200"></iframe>
-      </div>
-
-      <!-- STATUS -->
-      <div class="panel">
-        <h3>System Status</h3>
-        <p style="color:#22c55e;">All Systems Operational</p>
-        <p>Last Scan: 2 mins ago</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ATTACK SURFACE GRAPH -->
+<!-- ATTACK GRAPH -->
 <section class="attack-graph">
   <div class="container">
     <h2>Attack Surface Visualization</h2>
@@ -167,22 +132,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <script src="js/attack-graph.js"></script>
 
-<!-- GLOBAL THREAT MAP -->
-<section class="threat-map section-alt">
-  <div class="container">
-    <h2>Global Cyber Threat Activity</h2>
-
-    <iframe
-    src="https://threatmap.checkpoint.com/"
-    width="100%"
-    height="420"
-    style="border:none;border-radius:12px;">
-    </iframe>
-
-  </div>
-</section>
-
-<!-- NEW: SECURITY INTELLIGENCE TIMELINE -->
+<!-- LIVE METRICS -->
 <section class="section">
   <div class="container">
 
@@ -190,24 +140,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
     <div class="grid">
 
-      <div class="card">
+      <div class="card glow">
         <h3>Blocked Attacks</h3>
-        <p style="font-size:28px;color:#3b82f6;">1,342</p>
+        <p class="metric-big">1,342</p>
       </div>
 
-      <div class="card">
+      <div class="card glow-red">
         <h3>Active Vulnerabilities</h3>
-        <p style="font-size:28px;color:#ef4444;">8</p>
+        <p class="metric-big">8</p>
       </div>
 
-      <div class="card">
+      <div class="card glow-green">
         <h3>Resolved Issues</h3>
-        <p style="font-size:28px;color:#22c55e;">56</p>
+        <p class="metric-big">56</p>
       </div>
 
       <div class="card">
         <h3>Monitoring Status</h3>
-        <p style="color:#22c55e;">Active</p>
+        <p class="success">Active</p>
       </div>
 
     </div>
@@ -226,25 +176,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       <div class="card">
         <i class="fa-solid fa-shield-halved"></i>
         <h3>Risk Assessments</h3>
-        <p>Identify vulnerabilities.</p>
+        <p>Identify vulnerabilities and risks.</p>
       </div>
 
       <div class="card">
         <i class="fa-solid fa-user-secret"></i>
-        <h3>Pen Testing</h3>
-        <p>Simulate attacks.</p>
+        <h3>Penetration Testing</h3>
+        <p>Simulate real-world attacks.</p>
       </div>
 
       <div class="card">
         <i class="fa-solid fa-chart-line"></i>
         <h3>Compliance</h3>
-        <p>Meet NIST, HIPAA.</p>
+        <p>Meet NIST, HIPAA standards.</p>
       </div>
 
       <div class="card">
         <i class="fa-solid fa-gear"></i>
         <h3>Automation</h3>
-        <p>Secure workflows.</p>
+        <p>Secure business workflows.</p>
       </div>
 
     </div>
