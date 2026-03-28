@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
@@ -28,16 +27,29 @@ margin-bottom:10px;
 opacity:0.85;
 }
 
-/* SCANNER SECTION */
+/* SCANNER */
 .scanner-section{
 padding:60px 20px 100px;
-background:#020617;
 }
 
 .scanner-container{
-max-width:700px;
+max-width:750px;
 margin:auto;
 text-align:center;
+}
+
+/* EMAIL INPUT */
+.email-box{
+margin-bottom:20px;
+}
+
+.email-box input{
+padding:14px;
+width:300px;
+border-radius:8px;
+border:none;
+background:#111827;
+color:white;
 }
 
 /* INPUT */
@@ -70,44 +82,22 @@ transition:0.3s;
 
 .scanner-box button:hover{
 background:#2563eb;
-box-shadow:0 0 12px rgba(59,130,246,0.5);
 }
 
-/* RESULT CARD */
+/* RESULT */
 .scan-result-card{
 background:#111827;
-padding:25px;
+padding:30px;
 border-radius:12px;
 text-align:left;
 box-shadow:0 10px 30px rgba(0,0,0,0.4);
+transition:0.3s;
 }
 
-.scan-placeholder{
-opacity:0.6;
-}
-
-/* PROGRESS */
-.progress-bar{
-width:100%;
-height:8px;
-background:#1e293b;
-border-radius:6px;
-margin-top:15px;
-overflow:hidden;
-}
-
-#progressFill{
-height:100%;
-width:0%;
-background:#3b82f6;
-transition:0.2s;
-}
-
-/* RESULT GRID */
 .result-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
+gap:20px;
 margin-top:20px;
 }
 
@@ -118,48 +108,44 @@ border-radius:8px;
 text-align:center;
 }
 
-.result-box p{
-opacity:0.6;
-font-size:13px;
-}
-
-.result-box h4{
-margin-top:5px;
-}
-
-/* DETAILS */
-.result-details{
-margin-top:20px;
-}
-
-.result-details li{
-margin-bottom:8px;
-color:#cbd5e1;
-}
-
-/* FOOTER */
-.footer{
-background:#020617;
-padding:80px 20px 40px;
-border-top:1px solid rgba(255,255,255,0.05);
-}
-
-.footer-grid{
-max-width:1100px;
+/* LOADER */
+.loader{
+border:4px solid #1f2937;
+border-top:4px solid #3b82f6;
+border-radius:50%;
+width:30px;
+height:30px;
+animation:spin 1s linear infinite;
 margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:40px;
 }
 
-.footer a:hover{
-color:#3b82f6;
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
 }
 
-.footer-bottom{
+/* LOCK BOX */
+.lock-box{
+margin-top:25px;
+padding:20px;
+background:#0f172a;
+border-radius:10px;
 text-align:center;
-margin-top:40px;
-opacity:0.6;
+}
+
+.lock-box h4{
+margin-bottom:10px;
+}
+
+/* CTA */
+.btn-primary{
+display:inline-block;
+margin-top:10px;
+background:#3b82f6;
+padding:10px 18px;
+border-radius:6px;
+color:white;
+text-decoration:none;
 }
 
 </style>
@@ -181,8 +167,11 @@ document.getElementById("navbar").innerHTML = data;
 
 <!-- HERO -->
 <section class="hero">
+
 <h1>Cyber Security Scanner</h1>
-<p>Run a real-time security analysis on any domain.</p>
+
+<p>Run a quick security analysis and uncover risks instantly.</p>
+
 </section>
 
 <!-- SCANNER -->
@@ -190,18 +179,22 @@ document.getElementById("navbar").innerHTML = data;
 
 <div class="scanner-container">
 
+<!-- EMAIL -->
+<div class="email-box">
+<input type="email" id="userEmail" placeholder="Enter your email to unlock scan">
+</div>
+
+<!-- DOMAIN INPUT -->
 <div class="scanner-box">
 <input type="text" id="scanDomain" placeholder="example.com">
 <button onclick="runScan()">Run Security Scan</button>
 </div>
 
+<!-- RESULTS -->
 <div class="scan-result-card" id="scanResult">
-<h3>Scan Results</h3>
-<p class="scan-placeholder">No scan performed yet.</p>
 
-<div class="progress-bar" id="progressBar" style="display:none;">
-<div id="progressFill"></div>
-</div>
+<h3>Scan Results</h3>
+<p style="opacity:0.6;">No scan performed yet.</p>
 
 </div>
 
@@ -209,90 +202,60 @@ document.getElementById("navbar").innerHTML = data;
 
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-
-<div class="footer-grid">
-
-<div>
-<h3>Cyber-Node</h3>
-<p>Cybersecurity intelligence platform.</p>
-</div>
-
-<div>
-<h3>Security Tools</h3>
-<ul>
-<li><a href="security-scan.html">Security Scan</a></li>
-<li><a href="attack-surface.html">Attack Surface</a></li>
-</ul>
-</div>
-
-<div>
-<h3>Resources</h3>
-<ul>
-<li><a href="../resources.html">Security Guides</a></li>
-<li><a href="../case-studies.html">Case Studies</a></li>
-</ul>
-</div>
-
-<div>
-<h3>Contact</h3>
-<ul>
-<li>security@cyber-node.com</li>
-<li>Schedule Consultation</li>
-</ul>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-Cyber-Node © 2026 — Cybersecurity Intelligence Platform
-</div>
-
-</footer>
-
 <!-- SCRIPT -->
 <script>
 
 function runScan(){
 
+const email = document.getElementById("userEmail").value;
 const domain = document.getElementById("scanDomain").value;
+
+if(!email || !email.includes("@")){
+alert("Enter a valid email");
+return;
+}
 
 if(!domain){
 alert("Enter a domain");
 return;
 }
 
+/* SAVE LEAD */
+let leads = JSON.parse(localStorage.getItem("cybernode_leads") || "[]");
+
+leads.push({
+email: email,
+domain: domain,
+date: new Date().toISOString()
+});
+
+localStorage.setItem("cybernode_leads", JSON.stringify(leads));
+
+startScan(domain);
+
+}
+
+/* LOADING ANIMATION */
+function startScan(domain){
+
 let result = document.getElementById("scanResult");
-let progressBar = document.getElementById("progressBar");
-let progressFill = document.getElementById("progressFill");
 
-result.innerHTML = "<p>Initializing scan...</p>";
-progressBar.style.display = "block";
+result.innerHTML = `
+<h3>Scanning ${domain}...</h3>
+<div class="loader"></div>
+<p style="text-align:center;margin-top:10px;">Analyzing vulnerabilities...</p>
+`;
 
-let progress = 0;
-
-let interval = setInterval(()=>{
-progress += 5;
-progressFill.style.width = progress + "%";
-
-if(progress >= 100){
-clearInterval(interval);
+setTimeout(()=>{
 finishScan(domain);
-}
-
-}, 100);
+}, 1800);
 
 }
 
-async function finishScan(domain){
+/* RESULTS */
+function finishScan(domain){
 
 let result = document.getElementById("scanResult");
-
-try{
-
-let res = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
-let data = await res.json();
 
 let score = Math.floor(Math.random()*30)+70;
 
@@ -309,8 +272,6 @@ risk = "High Risk";
 color = "#ef4444";
 }
 
-let ip = data.Answer ? data.Answer[0].data : "Not found";
-
 result.innerHTML = `
 <h3>Security Report</h3>
 
@@ -322,38 +283,31 @@ result.innerHTML = `
 </div>
 
 <div class="result-box">
-<p>IP Address</p>
-<h4>${ip}</h4>
-</div>
-
-<div class="result-box">
-<p>Security Score</p>
+<p>Score</p>
 <h4 style="color:${color};">${score}/100</h4>
 </div>
 
 <div class="result-box">
-<p>Risk Level</p>
+<p>Risk</p>
 <h4 style="color:${color};">${risk}</h4>
 </div>
 
 </div>
 
-<div class="result-details">
-<ul>
-<li>Open ports detected</li>
-<li>SSL configuration review recommended</li>
-<li>Outdated headers identified</li>
-</ul>
-</div>
+<div class="lock-box">
 
-<a href="../contact.html" class="btn-primary" style="margin-top:20px;display:inline-block;">
-Get Full Report
+<h4>🔒 Full Report Locked</h4>
+
+<p style="opacity:0.7;">
+Unlock vulnerabilities, open ports, and risk exposure details.
+</p>
+
+<a href="../checkout.html" class="btn-primary">
+Unlock Full Report ($19)
 </a>
-`;
 
-}catch{
-result.innerHTML = "<p>Scan failed. Try again.</p>";
-}
+</div>
+`;
 
 }
 
