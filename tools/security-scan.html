@@ -27,25 +27,31 @@ margin-bottom:10px;
 opacity:0.85;
 }
 
-/* SCANNER */
+/* SECTION */
 .scanner-section{
-padding:60px 20px 100px;
+padding:60px 20px 120px;
+min-height:60vh;
+display:flex;
+align-items:center;
 }
 
+/* CONTAINER */
 .scanner-container{
-max-width:750px;
+max-width:700px;
 margin:auto;
 text-align:center;
+width:100%;
 }
 
-/* EMAIL INPUT */
+/* EMAIL */
 .email-box{
 margin-bottom:20px;
 }
 
 .email-box input{
 padding:14px;
-width:300px;
+width:320px;
+max-width:100%;
 border-radius:8px;
 border:none;
 background:#111827;
@@ -63,7 +69,7 @@ margin-bottom:30px;
 
 .scanner-box input{
 padding:14px;
-width:280px;
+width:260px;
 border-radius:8px;
 border:none;
 background:#111827;
@@ -84,7 +90,7 @@ transition:0.3s;
 background:#2563eb;
 }
 
-/* RESULT */
+/* RESULT CARD */
 .scan-result-card{
 background:#111827;
 padding:30px;
@@ -94,6 +100,7 @@ box-shadow:0 10px 30px rgba(0,0,0,0.4);
 transition:0.3s;
 }
 
+/* RESULT GRID */
 .result-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -124,7 +131,7 @@ margin:auto;
 100%{transform:rotate(360deg);}
 }
 
-/* LOCK BOX */
+/* LOCK */
 .lock-box{
 margin-top:25px;
 padding:20px;
@@ -133,11 +140,7 @@ border-radius:10px;
 text-align:center;
 }
 
-.lock-box h4{
-margin-bottom:10px;
-}
-
-/* CTA */
+/* BUTTON */
 .btn-primary{
 display:inline-block;
 margin-top:10px;
@@ -146,6 +149,53 @@ padding:10px 18px;
 border-radius:6px;
 color:white;
 text-decoration:none;
+}
+
+/* FOOTER */
+.footer{
+background:#020617;
+padding:60px 20px;
+border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.footer-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+}
+
+.footer ul{
+list-style:none;
+padding:0;
+}
+
+.footer li{
+margin-bottom:8px;
+color:#cbd5e1;
+}
+
+.footer a{
+color:#cbd5e1;
+text-decoration:none;
+}
+
+.footer a:hover{
+color:#3b82f6;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+opacity:0.6;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.scanner-box{
+flex-direction:column;
+}
 }
 
 </style>
@@ -167,11 +217,8 @@ document.getElementById("navbar").innerHTML = data;
 
 <!-- HERO -->
 <section class="hero">
-
 <h1>Cyber Security Scanner</h1>
-
 <p>Run a quick security analysis and uncover risks instantly.</p>
-
 </section>
 
 <!-- SCANNER -->
@@ -184,23 +231,67 @@ document.getElementById("navbar").innerHTML = data;
 <input type="email" id="userEmail" placeholder="Enter your email to unlock scan">
 </div>
 
-<!-- DOMAIN INPUT -->
+<!-- DOMAIN -->
 <div class="scanner-box">
 <input type="text" id="scanDomain" placeholder="example.com">
 <button onclick="runScan()">Run Security Scan</button>
 </div>
 
-<!-- RESULTS -->
+<!-- RESULT -->
 <div class="scan-result-card" id="scanResult">
-
 <h3>Scan Results</h3>
 <p style="opacity:0.6;">No scan performed yet.</p>
-
 </div>
 
 </div>
 
 </section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div>
+<h3>Cyber-Node</h3>
+<p style="opacity:0.7;">
+Cybersecurity intelligence platform for scanning and monitoring.
+</p>
+</div>
+
+<div>
+<h4>Platform</h4>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../services.html">Services</a></li>
+<li><a href="../dashboard.html">Dashboard</a></li>
+</ul>
+</div>
+
+<div>
+<h4>Tools</h4>
+<ul>
+<li><a href="security-scan.html">Security Scan</a></li>
+<li><a href="attack-surface.html">Attack Surface</a></li>
+<li><a href="../risk-check.html">Risk Check Tool</a></li>
+</ul>
+</div>
+
+<div>
+<h4>Contact</h4>
+<ul>
+<li>security@cyber-node.com</li>
+<li>Schedule Consultation</li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+Cyber-Node © 2026 — Cybersecurity Intelligence Platform
+</div>
+
+</footer>
 
 <!-- SCRIPT -->
 <script>
@@ -235,7 +326,6 @@ startScan(domain);
 
 }
 
-/* LOADING ANIMATION */
 function startScan(domain){
 
 let result = document.getElementById("scanResult");
@@ -252,7 +342,6 @@ finishScan(domain);
 
 }
 
-/* RESULTS */
 function finishScan(domain){
 
 let result = document.getElementById("scanResult");
@@ -299,7 +388,7 @@ result.innerHTML = `
 <h4>🔒 Full Report Locked</h4>
 
 <p style="opacity:0.7;">
-Unlock vulnerabilities, open ports, and risk exposure details.
+Unlock detailed vulnerabilities, ports, and risks.
 </p>
 
 <a href="../checkout.html" class="btn-primary">
