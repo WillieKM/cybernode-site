@@ -1,288 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="dashboard-layout">
 
-<head>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <h2>Cyber-Node</h2>
 
-<title>Cyber-Node SOC Dashboard</title>
+    <p class="nav-section">Dashboard</p>
+    <a href="../dashboard.html">Dashboard</a>
+    <a href="../tools/security-scan.html">Scanner</a>
+    <a href="../tools/attack-surface.html">Attack Surface</a>
+    <a href="#">Threat Intel</a>
+    <a href="#">Reports</a>
 
-<link rel="stylesheet" href="css/style.css">
+    <hr>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <p class="nav-section">Main Site</p>
+    <a href="../index.html">Home</a>
+    <a href="../services.html">Services</a>
+    <a href="../pricing.html">Pricing</a>
+    <a href="../resources.html">Resources</a>
 
-<style>
+    <a href="../contact.html" class="sidebar-cta">Contact</a>
 
-/* LAYOUT */
-.dashboard{
-display:flex;
-min-height:100vh;
-background:#020617;
-color:white;
-font-family:Arial;
-}
+  </aside>
 
-/* SIDEBAR */
-.sidebar{
-width:220px;
-background:#0f172a;
-padding:20px;
-}
+  <!-- MAIN AREA -->
+  <div class="main-area">
 
-.sidebar h2{
-margin-bottom:20px;
-}
+    <!-- TOP NAV -->
+    <header class="topbar">
 
-.sidebar a{
-display:block;
-margin:10px 0;
-color:white;
-text-decoration:none;
-opacity:0.8;
-}
+      <div class="top-left">
+        <h3>Security Operations Center</h3>
+      </div>
 
-.sidebar a:hover{
-color:#3b82f6;
-}
+      <div class="top-right">
 
-/* MAIN */
-.main{
-flex:1;
-padding:30px;
-}
+        <span class="status-dot"></span>
+        <span class="status-text">Live Monitoring</span>
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
+        <div class="user-menu">
+          <i class="fa-solid fa-user"></i>
+          <span>Admin</span>
+        </div>
 
-/* CARD */
-.card{
-background:#111827;
-padding:20px;
-border-radius:10px;
-}
+      </div>
 
-/* METRIC */
-.metric{
-font-size:28px;
-color:#3b82f6;
-}
+    </header>
 
-/* GAUGE */
-.gauge{
-width:150px;
-height:150px;
-margin:auto;
-border-radius:50%;
-background:conic-gradient(#3b82f6 0% 92%, #111827 92%);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:24px;
-}
+    <!-- PAGE CONTENT -->
+    <main class="content">
 
-/* ACTIVITY */
-.activity{
-margin-top:30px;
-}
+      <div class="card">
+        <h3>Security Score</h3>
+        <p style="font-size:32px; color:#3b82f6;">92%</p>
+      </div>
 
-</style>
+    </main>
 
-</head>
-
-<body>
-
-<div class="dashboard">
-
-<!-- SIDEBAR -->
-<div class="sidebar">
-
-<h2>Cyber-Node</h2>
-
-<a href="#">Dashboard</a>
-<a href="tools/security-scan.html">Scanner</a>
-<a href="tools/attack-surface.html">Attack Surface</a>
-<a href="#">Threat Intel</a>
-<a href="#">Reports</a>
+  </div>
 
 </div>
-
-
-<!-- MAIN -->
-<div class="main">
-
-<h2>Security Operations Center</h2>
-
-<br>
-
-<!-- TOP METRICS -->
-<div class="grid">
-
-<div class="card">
-
-<h3>Security Score</h3>
-
-<div class="gauge" id="gauge">92%</div>
-
-</div>
-
-<div class="card">
-
-<h3>Threat Alerts</h3>
-<div class="metric" id="alerts">24</div>
-
-</div>
-
-<div class="card">
-
-<h3>Vulnerabilities</h3>
-<div class="metric" id="vulns">8</div>
-
-</div>
-
-<div class="card">
-
-<h3>Assets Monitored</h3>
-<div class="metric" id="assets">12</div>
-
-</div>
-
-</div>
-
-
-<br><br>
-
-<!-- CHART -->
-<div class="card">
-
-<h3>Vulnerability Trends</h3>
-
-<canvas id="vulnChart"></canvas>
-
-</div>
-
-
-<!-- ACTIVITY -->
-<div class="activity">
-
-<h3>Recent Activity</h3>
-
-<ul id="activityLog">
-
-<li>Scan completed for example.com</li>
-<li>New vulnerability detected</li>
-<li>Security report generated</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* CHART */
-const ctx = document.getElementById('vulnChart');
-
-new Chart(ctx,{
-type:'line',
-data:{
-labels:['Mon','Tue','Wed','Thu','Fri'],
-datasets:[{
-label:'Vulnerabilities',
-data:[12,9,14,8,6]
-}]
-}
-});
-
-
-/* LIVE METRICS */
-function updateDashboard(){
-
-let score = Math.floor(Math.random()*20)+80;
-
-document.getElementById("alerts").innerText =
-Math.floor(Math.random()*30)+10;
-
-document.getElementById("vulns").innerText =
-Math.floor(Math.random()*15)+5;
-
-document.getElementById("assets").innerText =
-Math.floor(Math.random()*20)+5;
-
-document.getElementById("gauge").innerText = score + "%";
-
-document.getElementById("gauge").style.background =
-`conic-gradient(#3b82f6 0% ${score}%, #111827 ${score}%)`;
-
-}
-
-setInterval(updateDashboard,4000);
-
-</script>
-
-</body>
-
-</html>
-<script>
-
-async function runScan(){
-
-const domain = document.getElementById("scanDomain").value;
-
-if(!domain){
-alert("Enter a domain");
-return;
-}
-
-let resultBox = document.getElementById("scanResult");
-
-resultBox.innerHTML = "Scanning...";
-
-/* REAL DNS CHECK */
-try{
-
-let res = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
-let data = await res.json();
-
-let score = Math.floor(Math.random()*30)+70;
-
-if(data.Answer){
-
-resultBox.innerHTML = `
-<b>Domain:</b> ${domain}<br>
-<b>IP:</b> ${data.Answer[0].data}<br>
-<b>Security Score:</b> ${score}/100
-`;
-
-}else{
-
-resultBox.innerHTML = "No DNS records found.";
-
-}
-
-}catch{
-
-resultBox.innerHTML = "Scan failed.";
-
-}
-
-}
-
-</script>
-<div id="footer"></div>
-
-<script>
-fetch("/components/footer.html")
-.then(res => res.text())
-.then(data => {
-document.getElementById("footer").innerHTML = data;
-});
-</script>
