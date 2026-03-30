@@ -1,281 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber-Node | Security Intelligence Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --bg: #0e1f38;
+    --bg2: #142840;
+    --bg3: #1a3250;
+    --border: #2e5070;
+    --accent: #00d4ff;
+    --red: #ff4466;
+    --orange: #ffaa22;
+    --green: #00dd88;
+    --text: #e8f4ff;
+    --muted: #90bcd8;
+    --mono: 'Share Tech Mono', monospace;
+    --sans: 'Rajdhani', sans-serif;
+  }
 
-<title>Cyber-Node | Cybersecurity Platform</title>
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    margin: 0;
+    line-height: 1.6;
+  }
 
-<link rel="stylesheet" href="css/style.css">
+  /* Shared Grid Background for Hero */
+  .hero-wrap {
+    position: relative;
+    padding: 160px 20px 100px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    overflow: hidden;
+  }
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  .hero-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 70%);
+  }
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: linear-gradient(180deg, transparent 0%, black 50%, transparent 100%);
+  }
 
+  .hero-content { position: relative; z-index: 2; }
+  
+  .hero-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .hero-content h1 span { color: var(--accent); }
+
+  .hero-content p {
+    font-family: var(--mono);
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .btn-group { display: flex; justify-content: center; gap: 20px; }
+
+  .cn-btn {
+    padding: 15px 35px;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+  }
+
+  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-secondary { border: 1px solid var(--accent); color: var(--accent); }
+  .cn-btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+
+  /* Dashboard Section */
+  .soc-section {
+    max-width: 1200px;
+    margin: -60px auto 100px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .soc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  .soc-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  .soc-card h3 {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(0,212,255,0.1);
+    padding-bottom: 10px;
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    margin-bottom: 15px;
+  }
+
+  .val-danger { color: var(--red); text-shadow: 0 0 10px var(--red); }
+  .val-success { color: var(--green); text-shadow: 0 0 10px var(--green); }
+
+  /* Threat Feed Styling */
+  .threat-list { list-style: none; font-family: var(--mono); font-size: 13px; }
+  .threat-list li {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: rgba(0,0,0,0.2);
+    border-left: 3px solid var(--accent);
+  }
+
+  .threat-list li.alert { border-left-color: var(--red); color: var(--red); }
+
+  /* Services Grid */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 100px;
+  }
+
+  .service-card {
+    text-align: center;
+    padding: 40px 20px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+
+  .service-card i { font-size: 32px; color: var(--accent); margin-bottom: 20px; }
+  .service-card h4 { font-size: 20px; margin-bottom: 10px; }
+  .service-card p { font-size: 14px; color: var(--muted); }
+  .service-card:hover { border-color: var(--accent); background: rgba(0,212,255,0.02); }
+
+  @media (max-width: 900px) {
+    .service-grid { grid-template-columns: 1fr 1fr; }
+    .hero-content h1 { font-size: 40px; }
+  }
+</style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-  <div class="nav-container">
+<div id="navbar"></div>
 
-    <div class="logo">Cyber-Node</div>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="resources.html">Resources</a>
-
-      <div class="dropdown">
-        <span>Tools ▾</span>
-        <div class="dropdown-content">
-          <a href="tools/security-scan.html">Security Scan</a>
-          <a href="tools/attack-surface.html">Attack Surface</a>
-          <a href="risk-check.html">Risk Check Tool</a>
-        </div>
-      </div>
-
-      <a href="dashboard.html">Dashboard</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
+<section class="hero-wrap">
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 15px;">// SYSTEM INITIALIZED</div>
+    <h1>Security <span>Intelligence</span> &<br>Infrastructure Monitoring</h1>
+    <p>Enterprise-grade vulnerability discovery and real-time attack surface management.</p>
+    <div class="btn-group">
+      <a href="tools/security-scan.html" class="cn-btn btn-primary">Initialize Scan</a>
+      <a href="pricing.html" class="cn-btn btn-secondary">View Platform</a>
     </div>
-
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-
-    <h1>Cybersecurity Intelligence & Monitoring Platform</h1>
-
-    <p>
-      Identify vulnerabilities, monitor infrastructure, and prevent attacks before they happen.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="tools/security-scan.html" class="btn-primary">Run Free Scan</a>
-      <a href="consultation.html" class="btn-secondary">Schedule Consultation</a>
-    </div>
-
   </div>
 </section>
 
-<!-- SOC DASHBOARD -->
-<section class="section-alt">
-  <div class="container">
-
-    <h2 style="text-align:center;margin-bottom:40px;">
-      Security Operations Center
-    </h2>
-
-    <div class="soc-grid">
-
-      <!-- METRICS -->
-      <div class="soc-card">
-        <h3>Security Metrics</h3>
-        <div class="metric-line">Threat Alerts <span class="danger pulse">24</span></div>
-        <div class="metric-line">Security Score <span class="success">92%</span></div>
-        <div class="metric-line">Active Assets <span>12</span></div>
-      </div>
-
-      <!-- THREAT FEED -->
-      <div class="soc-card">
-        <h3>Threat Intelligence</h3>
-        <ul class="threat-feed">
-          <li class="danger">🚨 CVE-2026-1842 Exploit detected</li>
-          <li class="warning">⚠️ Suspicious login attempt</li>
-          <li>🔍 Open port detected (443)</li>
-        </ul>
-      </div>
-
-      <!-- ATTACK MAP -->
-      <div class="soc-card soc-wide">
-        <h3>Live Global Threat Activity</h3>
-        <iframe src="https://threatmap.checkpoint.com/" height="350"></iframe>
-      </div>
-
-      <!-- SYSTEM STATUS -->
-      <div class="soc-card">
-        <h3>System Status</h3>
-        <p class="success">● All Systems Operational</p>
-        <p>Last Scan: 2 mins ago</p>
-      </div>
-
-      <!-- ACTIVITY -->
-      <div class="soc-card">
-        <h3>Recent Activity</h3>
-        <ul class="timeline">
-          <li>Scan completed – 2 mins ago</li>
-          <li>Vulnerability detected – 10 mins ago</li>
-          <li>Patch applied – 1 hour ago</li>
-        </ul>
-      </div>
-
+<div class="soc-section">
+  <div class="soc-grid">
+    <div class="soc-card">
+      <h3>Active Node Status</h3>
+      <div class="metric-row"><span>Threat Alerts</span> <span class="val-danger">24</span></div>
+      <div class="metric-row"><span>Security Score</span> <span class="val-success">92%</span></div>
+      <div class="metric-row"><span>Active Assets</span> <span>12</span></div>
+      <div class="metric-row"><span>Uptime</span> <span>99.9%</span></div>
     </div>
 
-  </div>
-</section>
-
-<!-- ATTACK GRAPH -->
-<section class="attack-graph">
-  <div class="container">
-    <h2>Attack Surface Visualization</h2>
-    <p>Map exposed infrastructure and relationships.</p>
-    <div id="graph"></div>
-  </div>
-</section>
-
-<script src="js/attack-graph.js"></script>
-
-<!-- LIVE METRICS -->
-<section class="section">
-  <div class="container">
-
-    <h2>Live Security Intelligence</h2>
-
-    <div class="grid">
-
-      <div class="card glow">
-        <h3>Blocked Attacks</h3>
-        <p class="metric-big">1,342</p>
-      </div>
-
-      <div class="card glow-red">
-        <h3>Active Vulnerabilities</h3>
-        <p class="metric-big">8</p>
-      </div>
-
-      <div class="card glow-green">
-        <h3>Resolved Issues</h3>
-        <p class="metric-big">56</p>
-      </div>
-
-      <div class="card">
-        <h3>Monitoring Status</h3>
-        <p class="success">Active</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="section-alt">
-  <div class="container">
-
-    <h2>Core Security Services</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <i class="fa-solid fa-shield-halved"></i>
-        <h3>Risk Assessments</h3>
-        <p>Identify vulnerabilities and risks.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-user-secret"></i>
-        <h3>Penetration Testing</h3>
-        <p>Simulate real-world attacks.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-chart-line"></i>
-        <h3>Compliance</h3>
-        <p>Meet NIST, HIPAA standards.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-gear"></i>
-        <h3>Automation</h3>
-        <p>Secure business workflows.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta section">
-  <div class="container">
-    <h2>Start Strengthening Your Security</h2>
-    <a href="tools/security-scan.html" class="btn-primary">
-      Run Free Security Scan
-    </a>
-  </div>
-</section>
-
-<footer class="footer">
-
-  <div class="container footer-grid">
-
-    <!-- BRAND -->
-    <div class="footer-brand">
-      <h3>Cyber-Node</h3>
-      <p>
-        Cybersecurity intelligence platform providing vulnerability scanning,
-        attack surface discovery, and real-time monitoring.
-      </p>
-    </div>
-
-    <!-- PLATFORM -->
-    <div>
-      <h4>Platform</h4>
-      <ul>
-        <li><a href="tools/security-scan.html">Security Scan</a></li>
-        <li><a href="tools/attack-surface.html">Attack Surface</a></li>
-        <li><a href="risk-check.html">Risk Check Tool</a></li>
-        <li><a href="dashboard.html">Security Dashboard</a></li>
+    <div class="soc-card">
+      <h3>Threat Intelligence</h3>
+      <ul class="threat-list">
+        <li class="alert">🚨 Exploit Detected: CVE-2026-1842</li>
+        <li>⚠️ Suspicious Login Attempt - IP: 192.168.1.1</li>
+        <li>🔍 Header Analysis Complete: example.com</li>
       </ul>
     </div>
 
-    <!-- SERVICES -->
-    <div>
-      <h4>Services</h4>
-      <ul>
-        <li><a href="services.html">Risk Assessments</a></li>
-        <li><a href="services.html">Penetration Testing</a></li>
-        <li><a href="services.html">Compliance Consulting</a></li>
-        <li><a href="services.html">Automation Security</a></li>
-      </ul>
+    <div class="soc-card">
+      <h3>Recent Activity</h3>
+      <div style="font-size: 14px; font-family: var(--mono); color: var(--muted);">
+        <p>• Full Scan Completed — 2 mins ago</p>
+        <p>• Firewall Rules Updated — 1 hour ago</p>
+        <p>• New Asset Discovered — 4 hours ago</p>
+      </div>
     </div>
-
-    <!-- COMPANY -->
-    <div>
-      <h4>Company</h4>
-      <ul>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="resources.html">Resources</a></li>
-      </ul>
-    </div>
-
-    <!-- CONTACT -->
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li>security@cyber-node.com</li>
-        <li>Consultation Available</li>
-      </ul>
-    </div>
-
   </div>
+</div>
 
-  <!-- DIVIDER -->
-  <div class="footer-divider"></div>
-
-  <!-- BOTTOM -->
-  <div class="footer-bottom">
-    <p>Cyber-Node © 2026 • Cybersecurity Intelligence Platform</p>
+<section style="max-width: 1200px; margin: 0 auto 100px; padding: 0 20px;">
+  <h2 style="text-align: center; margin-bottom: 50px; font-size: 32px;">Core Security Modules</h2>
+  <div class="service-grid">
+    <div class="service-card">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h4>Assessments</h4>
+      <p>Identify deep-level risks across your infrastructure.</p>
+    </div>
+    <div class="service-card">
+      <i class="fa-solid fa-user-secret"></i>
+      <h4>Pen-Testing</h4>
+      <p>Real-world simulation of advanced threat actors.</p>
+    </div>
+    <div class="service-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <h4>Compliance</h4>
+      <p>Automated alignment with NIST and SOC2 standards.</p>
+    </div>
+    <div class="service-card">
+      <i class="fa-solid fa-bolt"></i>
+      <h4>Automation</h4>
+      <p>Securing high-velocity business workflows.</p>
+    </div>
   </div>
+</section>
 
-</footer>
+<div id="footer"></div>
+
+<script>
+  // Load Navbar
+  fetch("components/navbar.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("navbar").innerHTML = html; })
+    .catch(e => console.error("Nav error:", e));
+
+  // Load Footer
+  fetch("components/footer.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
+    .catch(e => console.error("Footer error:", e));
+</script>
+
 </body>
 </html>
