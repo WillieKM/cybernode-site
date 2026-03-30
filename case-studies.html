@@ -1,334 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Cybersecurity Case Studies | Cyber-Node</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+<title>Case Studies | Cyber-Node</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* PAGE BACKGROUND */
+  :root {
+    --bg:      #0e1f38;
+    --bg2:     #142840;
+    --bg3:     #1a3250;
+    --border:  #2e5070;
+    --accent:  #00d4ff;
+    --red:     #ff4466;
+    --orange:  #ffaa22;
+    --green:   #00dd88;
+    --text:    #e8f4ff;
+    --muted:   #90bcd8;
+    --mono:    'Share Tech Mono', monospace;
+    --sans:    'Rajdhani', sans-serif;
+  }
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#081224;
-color:white;
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+  }
 
-/* HERO */
+  /* Shared Hero Style from Scanner */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 120px 20px 80px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    overflow: hidden;
+  }
 
-.hero{
-text-align:center;
-padding:90px 20px;
-background:linear-gradient(90deg,#182848,#0c1b3a);
-}
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 70%);
+  }
 
-.hero h1{
-font-size:42px;
-margin-bottom:10px;
-}
+  .hero-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.5) 40%, transparent);
+  }
 
-.hero p{
-color:#c6d2ff;
-max-width:700px;
-margin:auto;
-}
+  .hero-content { position: relative; z-index: 1; }
 
-/* CASE STUDY GRID */
+  .hero-eyebrow {
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-family: var(--mono);
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
 
-.case-section{
-max-width:1200px;
-margin:auto;
-padding:70px 20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #f0f8ff;
+    margin-bottom: 12px;
+  }
 
-.case-card{
-background:#0e1a32;
-padding:30px;
-border-radius:10px;
-transition:0.3s;
-}
+  .hero h1 span { color: var(--accent); }
 
-.case-card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
+  /* Case Studies Grid */
+  .case-section {
+    max-width: 1200px;
+    margin: -40px auto 80px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+  }
 
-.case-card h3{
-margin-bottom:10px;
-color:#2D8FE3;
-}
+  .case-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
 
-.case-card ul{
-padding-left:18px;
-color:#cbd7ff;
-}
+  .case-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+  }
 
-.industry{
-margin-top:10px;
-font-size:13px;
-color:#7ea3ff;
-}
+  .case-industry {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-/* CTA */
+  .case-industry::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent);
+  }
 
-.cta{
-text-align:center;
-padding:80px 20px;
-background:#101c33;
-}
+  .case-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #f0f8ff;
+  }
 
-.cta h2{
-margin-bottom:10px;
-}
+  .case-card p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
 
-.cta button{
-padding:14px 30px;
-background:#2D8FE3;
-border:none;
-color:white;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-}
+  .case-list {
+    list-style: none;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
 
+  .case-list li {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(46, 80, 112, 0.4);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .case-list li::before {
+    content: '›';
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  /* Call to Action */
+  .cta-block {
+    text-align: center;
+    padding: 100px 20px;
+    border-top: 1px solid var(--border);
+    background: radial-gradient(circle at center, rgba(0,212,255,0.05) 0%, transparent 70%);
+  }
+
+  .cn-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--accent);
+    color: #0a1628;
+    border: none;
+    border-radius: 7px;
+    font-family: var(--mono);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    margin-top: 30px;
+  }
+
+  .cn-btn:hover {
+    background: #33ddff;
+    box-shadow: 0 0 20px rgba(0,212,255,0.4);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 38px; }
+    .case-section { margin-top: 40px; }
+  }
 </style>
-
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<section class="hero">
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">// Archive: Field Operations</div>
+    <h1>Cybersecurity <span>Case Studies</span></h1>
+    <p style="color: var(--muted); font-family: var(--mono); max-width: 600px; margin: 0 auto;">
+      Real-world documentation of threat mitigation and structural hardening.
+    </p>
+  </div>
+</section>
 
-
-
-<header class="navbar">
-
-  <div class="nav-container">
-
-    <div class="logo">Cyber-Node</div>
-
-    <div class="nav-links">
-
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="resources.html">Resources</a>
-
-      <div class="dropdown">
-        <span>Tools ▾</span>
-        <div class="dropdown-content">
-          <a href="tools/security-scan.html">Security Scan</a>
-          <a href="tools/attack-surface.html">Attack Surface</a>
-          <a href="risk-check.html">Risk Check Tool</a>
-        </div>
-      </div>
-
-      <a href="dashboard.html">Dashboard</a>
-      <a href="contact.html" class="nav-cta">Contact</a>
-
-    </div>
-
+<div class="case-section">
+  <div class="case-card">
+    <div class="case-industry">Healthcare</div>
+    <h3>Security Assessment</h3>
+    <p>Full-scale vulnerability assessment for a patient-data intensive environment.</p>
+    <ul class="case-list">
+      <li>42 critical vulnerabilities resolved</li>
+      <li>Weak auth policies identified</li>
+      <li>HIPAA compliance hardened</li>
+      <li>Network segmentation deployed</li>
+    </ul>
   </div>
 
-</header>
+  <div class="case-card" style="border-left: 4px solid var(--accent);">
+    <div class="case-industry">Technology</div>
+    <h3>Infrastructure Audit</h3>
+    <p>Scaling a cloud-first infrastructure while minimizing the attack surface.</p>
+    <ul class="case-list">
+      <li>Cloud storage access hardened</li>
+      <li>Firewall policy optimization</li>
+      <li>Real-time monitoring enabled</li>
+      <li>Attack surface reduced by 60%</li>
+    </ul>
+  </div>
+
+  <div class="case-card">
+    <div class="case-industry">Government</div>
+    <h3>Compliance Review</h3>
+    <p>Aligning operations with NIST frameworks for high-stakes contract bidding.</p>
+    <ul class="case-list">
+      <li>NIST framework alignment</li>
+      <li>Access control overhaul</li>
+      <li>Incident response plan tested</li>
+      <li>Compliance readiness achieved</li>
+    </ul>
+  </div>
 </div>
 
-</nav>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>Cybersecurity Case Studies</h1>
-
-<p>
-Real-world examples of how Cyber-Node helps organizations identify vulnerabilities and strengthen security.
-</p>
-
+<section class="cta-block">
+  <div class="hero-eyebrow">Ready to secure your node?</div>
+  <h2 style="font-size: 32px;">Initialize a System Scan Today</h2>
+  <a href="#" class="cn-btn">Run Free Security Scan</a>
 </section>
-
-
-<!-- CASE STUDIES -->
-
-<section class="case-section">
-
-<div class="case-card">
-
-<h3>Healthcare Security Assessment</h3>
-
-<p>
-Cyber-Node conducted a full cybersecurity assessment for a healthcare organization handling protected patient data.
-</p>
-
-<ul>
-<li>42 vulnerabilities discovered across network endpoints</li>
-<li>Weak authentication policies identified</li>
-<li>Endpoint security misconfigurations resolved</li>
-<li>HIPAA compliance readiness improved</li>
-<li>Network segmentation implemented</li>
-</ul>
-
-<div class="industry">Industry: Healthcare</div>
-
-</div>
-
-
-<div class="case-card">
-
-<h3>Small Business Infrastructure Audit</h3>
-
-<p>
-A growing technology company required a full security review of their cloud and internal infrastructure.
-</p>
-
-<ul>
-<li>Network misconfigurations identified</li>
-<li>Firewall policy improvements implemented</li>
-<li>Cloud storage access controls hardened</li>
-<li>Security monitoring enabled</li>
-<li>Reduced potential attack surface by 60%</li>
-</ul>
-
-<div class="industry">Industry: Technology</div>
-
-</div>
-
-
-<div class="case-card">
-
-<h3>Government Contractor Compliance Review</h3>
-
-<p>
-Cyber-Node evaluated the cybersecurity posture of a company preparing to bid on government contracts.
-</p>
-
-<ul>
-<li>NIST security framework alignment review</li>
-<li>Documentation and policies strengthened</li>
-<li>Access control procedures improved</li>
-<li>Incident response plan implemented</li>
-<li>Compliance readiness achieved</li>
-</ul>
-
-<div class="industry">Industry: Government Contractor</div>
-
-</div>
-
-
-<div class="case-card">
-
-<h3>Automation Security Implementation</h3>
-
-<p>
-Cyber-Node deployed secure automation systems for a company managing sensitive operational data.
-</p>
-
-<ul>
-<li>Secure document workflow automation</li>
-<li>Automated compliance tracking system</li>
-<li>Security event logging enabled</li>
-<li>Protected API integrations deployed</li>
-<li>Operational risk significantly reduced</li>
-</ul>
-
-<div class="industry">Industry: Professional Services</div>
-
-</div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta">
-
-<h2>Ready to Improve Your Security?</h2>
-
-<p>
-Run a free security scan or schedule a consultation with Cyber-Node today.
-</p>
-
-<br>
-
-<button onclick="location.href='scanner.html'">
-Run Free Security Scan
-</button>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-<div class="container footer-grid">
-
-<div>
-
-<h3>Cyber-Node</h3>
-
-<p>
-Cybersecurity intelligence platform providing
-security assessments, automation systems,
-and infrastructure monitoring.
-</p>
-
-</div>
-
-<div>
-
-<h4>Platform</h4>
-
-<ul>
-<li><a href="tools/security-scan.html">Security Scan</a></li>
-<li><a href="dashboard.html">Security Dashboard</a></li>
-</ul>
-
-</div>
-
-<div>
-
-<h4>Services</h4>
-
-<ul>
-<li><a href="services.html">Cybersecurity Services</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-</ul>
-
-</div>
-
-<div>
-
-<h4>Contact</h4>
-
-<ul>
-<li>Email: security@cyber-node.com</li>
-<li>Consultation</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-Cyber-Node © 2026
-
-</div>
-
-</footer>
 
 </body>
 </html>
