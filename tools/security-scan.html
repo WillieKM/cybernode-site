@@ -11,16 +11,16 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:     #040c16;
-    --bg2:    #060e1a;
-    --bg3:    #071525;
-    --border: #0d2236;
+    --bg:     #0e1f38;
+    --bg2:    #142840;
+    --bg3:    #1a3250;
+    --border: #2e5070;
     --accent: #00d4ff;
-    --red:    #ff2244;
-    --orange: #ff8c00;
-    --green:  #00cc77;
-    --text:   #c8d8e8;
-    --muted:  #4a7a9a;
+    --red:    #ff4466;
+    --orange: #ffaa22;
+    --green:  #00dd88;
+    --text:   #e8f4ff;
+    --muted:  #90bcd8;
     --mono:   'Share Tech Mono', monospace;
     --sans:   'Rajdhani', sans-serif;
   }
@@ -32,32 +32,30 @@
     min-height: 100vh;
   }
 
-  /* ── HERO ───────────────────── */
   .hero {
     position: relative;
     text-align: center;
     padding: 110px 20px 80px;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
   }
 
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 70%),
-      linear-gradient(180deg, #071525 0%, #040c16 100%);
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 70%);
   }
 
   .hero-grid-lines {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(0,212,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.07) 1px, transparent 1px);
     background-size: 40px 40px;
-    mask-image: linear-gradient(180deg, transparent, rgba(0,0,0,0.6) 40%, transparent);
+    mask-image: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.5) 40%, transparent);
   }
 
   .hero-content { position: relative; z-index: 1; }
@@ -74,7 +72,7 @@
   .hero h1 {
     font-size: 48px;
     font-weight: 700;
-    color: #e8f4ff;
+    color: #f0f8ff;
     letter-spacing: 1px;
     margin-bottom: 12px;
     line-height: 1.1;
@@ -90,19 +88,13 @@
     margin-bottom: 40px;
   }
 
-  /* stat chips */
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
+  .hero-stats { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 
   .hero-stat {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(7,21,37,0.8);
+    background: rgba(26,50,80,0.9);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 6px 14px;
@@ -112,13 +104,8 @@
     letter-spacing: 1px;
   }
 
-  .hero-stat .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-  }
+  .hero-stat .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
-  /* ── SCANNER SECTION ────────── */
   .scanner-section {
     padding: 64px 20px 80px;
     display: flex;
@@ -126,25 +113,17 @@
     justify-content: center;
   }
 
-  .scanner-wrap {
-    width: 100%;
-    max-width: 760px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+  .scanner-wrap { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 20px; }
 
-  /* step label */
   .step-label {
     font-size: 10px;
     letter-spacing: 3px;
     font-family: var(--mono);
     color: var(--muted);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
-  /* input card */
   .input-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -152,17 +131,9 @@
     padding: 24px 28px;
   }
 
-  .input-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+  .input-row { display: flex; gap: 12px; flex-wrap: wrap; }
 
-  .field-wrap {
-    position: relative;
-    flex: 1;
-    min-width: 200px;
-  }
+  .field-wrap { position: relative; flex: 1; min-width: 200px; }
 
   .field-icon {
     position: absolute;
@@ -189,13 +160,13 @@
     transition: border-color 0.2s;
   }
 
-  .cn-input::placeholder { color: #2a4a6a; }
+  .cn-input::placeholder { color: #5a8aaa; }
   .cn-input:focus { border-color: var(--accent); }
 
   .cn-btn {
     padding: 13px 28px;
     background: var(--accent);
-    color: #040c16;
+    color: #0a1628;
     border: none;
     border-radius: 7px;
     font-family: var(--mono);
@@ -213,7 +184,6 @@
   .cn-btn:active { transform: scale(0.98); }
   .cn-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  /* ── RESULT CARD ────────────── */
   .result-card {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -242,26 +212,16 @@
     gap: 10px;
   }
 
-  .result-placeholder .shield {
-    font-size: 36px;
-    opacity: 0.15;
-  }
+  .result-placeholder .shield { font-size: 36px; opacity: 0.3; }
 
   .result-placeholder p {
     font-size: 12px;
     font-family: var(--mono);
-    color: #1a3a5a;
+    color: var(--muted);
     letter-spacing: 2px;
   }
 
-  /* loader */
-  .scan-loader {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 0;
-  }
+  .scan-loader { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0; }
 
   .loader-ring {
     width: 48px; height: 48px;
@@ -281,15 +241,9 @@
     animation: blink 1.2s infinite;
   }
 
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
-  .loader-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
-    max-width: 320px;
-  }
+  .loader-steps { display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 320px; }
 
   .loader-step {
     display: flex;
@@ -297,40 +251,19 @@
     gap: 10px;
     font-size: 11px;
     font-family: var(--mono);
-    color: #1a3a5a;
+    color: #5a8aaa;
     letter-spacing: 1px;
     transition: color 0.3s;
   }
 
-  .loader-step.done { color: var(--green); }
+  .loader-step.done  { color: var(--green); }
   .loader-step.active { color: var(--accent); }
-
   .step-tick { font-size: 10px; width: 14px; text-align: center; }
 
-  /* results */
-  .result-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+  .result-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
 
-  .result-domain {
-    font-size: 10px;
-    font-family: var(--mono);
-    color: var(--muted);
-    letter-spacing: 3px;
-    margin-bottom: 4px;
-  }
-
-  .result-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: #e8f4ff;
-    letter-spacing: 1px;
-  }
+  .result-domain { font-size: 10px; font-family: var(--mono); color: var(--muted); letter-spacing: 3px; margin-bottom: 4px; }
+  .result-title  { font-size: 20px; font-weight: 700; color: #f0f8ff; letter-spacing: 1px; }
 
   .score-badge {
     display: flex;
@@ -342,25 +275,10 @@
     padding: 10px 20px;
   }
 
-  .score-badge .score-val {
-    font-size: 28px;
-    font-weight: 700;
-    font-family: var(--mono);
-  }
+  .score-val { font-size: 28px; font-weight: 700; font-family: var(--mono); }
+  .score-lbl { font-size: 10px; font-family: var(--mono); letter-spacing: 2px; margin-top: 2px; }
 
-  .score-badge .score-lbl {
-    font-size: 10px;
-    font-family: var(--mono);
-    letter-spacing: 2px;
-    margin-top: 2px;
-  }
-
-  .result-metrics {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-    margin-bottom: 20px;
-  }
+  .result-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
 
   .metric-box {
     background: var(--bg3);
@@ -370,23 +288,9 @@
     border-left: 3px solid;
   }
 
-  .metric-box .m-label {
-    font-size: 10px;
-    font-family: var(--mono);
-    color: var(--muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
+  .m-label { font-size: 10px; font-family: var(--mono); color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .m-val   { font-size: 15px; font-weight: 600; font-family: var(--mono); letter-spacing: 1px; }
 
-  .metric-box .m-val {
-    font-size: 15px;
-    font-weight: 600;
-    font-family: var(--mono);
-    letter-spacing: 1px;
-  }
-
-  /* lock box */
   .lock-box {
     background: var(--bg3);
     border: 1px solid var(--border);
@@ -399,37 +303,17 @@
     flex-wrap: wrap;
   }
 
-  .lock-box .lock-icon {
-    font-size: 22px;
-  }
+  .lock-icon { font-size: 22px; }
+  .lock-info h4 { font-size: 15px; font-weight: 700; color: #f0f8ff; letter-spacing: 1px; margin-bottom: 4px; }
+  .lock-info p  { font-size: 12px; font-family: var(--mono); color: var(--muted); letter-spacing: 0.5px; }
 
-  .lock-info h4 {
-    font-size: 15px;
-    font-weight: 700;
-    color: #e8f4ff;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-
-  .lock-info p {
-    font-size: 12px;
-    font-family: var(--mono);
-    color: var(--muted);
-    letter-spacing: 0.5px;
-  }
-
-  .lock-items {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
+  .lock-items { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 
   .lock-item {
     font-size: 10px;
     font-family: var(--mono);
-    color: #2a5a8a;
-    background: #040c16;
+    color: var(--muted);
+    background: var(--bg2);
     border: 1px solid var(--border);
     padding: 4px 10px;
     border-radius: 3px;
@@ -455,20 +339,10 @@
     white-space: nowrap;
   }
 
-  .unlock-btn:hover {
-    background: var(--accent);
-    color: #040c16;
-  }
+  .unlock-btn:hover { background: var(--accent); color: #0e1f38; }
 
-  /* ── HOW IT WORKS ───────────── */
-  .how-section {
-    padding: 0 20px 80px;
-  }
-
-  .how-wrap {
-    max-width: 760px;
-    margin: 0 auto;
-  }
+  .how-section { padding: 0 20px 80px; }
+  .how-wrap { max-width: 760px; margin: 0 auto; }
 
   .section-label {
     font-size: 10px;
@@ -481,42 +355,12 @@
     border-top: 1px solid var(--border);
   }
 
-  .steps-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+  .steps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
-  .step-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-  }
-
-  .step-num {
-    font-size: 11px;
-    font-family: var(--mono);
-    color: var(--accent);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-  }
-
-  .step-card h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: #e8f4ff;
-    letter-spacing: 0.5px;
-    margin-bottom: 6px;
-  }
-
-  .step-card p {
-    font-size: 12px;
-    font-family: var(--mono);
-    color: var(--muted);
-    letter-spacing: 0.5px;
-    line-height: 1.6;
-  }
+  .step-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+  .step-num  { font-size: 11px; font-family: var(--mono); color: var(--accent); letter-spacing: 2px; margin-bottom: 10px; }
+  .step-card h4 { font-size: 14px; font-weight: 700; color: #f0f8ff; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .step-card p  { font-size: 12px; font-family: var(--mono); color: var(--muted); letter-spacing: 0.5px; line-height: 1.6; }
 
   @media (max-width: 640px) {
     .hero h1 { font-size: 32px; }
@@ -537,7 +381,6 @@
     .catch(() => {});
 </script>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-content">
@@ -553,11 +396,9 @@
   </div>
 </section>
 
-<!-- SCANNER -->
 <section class="scanner-section">
   <div class="scanner-wrap">
 
-    <!-- STEP 1: EMAIL -->
     <div class="input-card">
       <div class="step-label">// step 01 — identify</div>
       <div class="field-wrap">
@@ -566,7 +407,6 @@
       </div>
     </div>
 
-    <!-- STEP 2: DOMAIN -->
     <div class="input-card">
       <div class="step-label">// step 02 — target domain</div>
       <div class="input-row">
@@ -578,9 +418,8 @@
       </div>
     </div>
 
-    <!-- RESULT -->
     <div class="result-card" id="resultCard">
-      <div class="result-placeholder" id="resultPlaceholder">
+      <div class="result-placeholder">
         <div class="shield">🛡</div>
         <p>AWAITING TARGET — ENTER DOMAIN ABOVE</p>
       </div>
@@ -589,7 +428,6 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="how-section">
   <div class="how-wrap">
     <div class="section-label">// how it works</div>
@@ -613,7 +451,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <div id="footer"></div>
 <script>
   fetch("../components/footer.html")
@@ -636,20 +473,18 @@
     const domain = document.getElementById('scanDomain').value.trim();
 
     if (!email || !email.includes('@')) {
-      document.getElementById('userEmail').focus();
-      document.getElementById('userEmail').style.borderColor = '#ff2244';
-      setTimeout(() => document.getElementById('userEmail').style.borderColor = '', 1200);
+      const el = document.getElementById('userEmail');
+      el.focus(); el.style.borderColor = '#ff4466';
+      setTimeout(() => el.style.borderColor = '', 1400);
       return;
     }
-
     if (!domain) {
-      document.getElementById('scanDomain').focus();
-      document.getElementById('scanDomain').style.borderColor = '#ff2244';
-      setTimeout(() => document.getElementById('scanDomain').style.borderColor = '', 1200);
+      const el = document.getElementById('scanDomain');
+      el.focus(); el.style.borderColor = '#ff4466';
+      setTimeout(() => el.style.borderColor = '', 1400);
       return;
     }
 
-    // save lead
     try {
       let leads = JSON.parse(localStorage.getItem('cybernode_leads') || '[]');
       leads.push({ email, domain, date: new Date().toISOString() });
@@ -664,7 +499,7 @@
     const card = document.getElementById('resultCard');
     card.classList.remove('scanned');
 
-    let stepHTML = SCAN_STEPS.map((s, i) =>
+    const stepHTML = SCAN_STEPS.map((s, i) =>
       `<div class="loader-step" id="lstep${i}"><span class="step-tick">·</span>${s}</div>`
     ).join('');
 
@@ -673,11 +508,10 @@
         <div class="loader-ring"></div>
         <div class="loader-text">SCANNING ${domain.toUpperCase()}</div>
         <div class="loader-steps">${stepHTML}</div>
-      </div>
-    `;
+      </div>`;
 
     let i = 0;
-    const interval = setInterval(() => {
+    const iv = setInterval(() => {
       if (i > 0) {
         const prev = document.getElementById(`lstep${i-1}`);
         if (prev) { prev.classList.remove('active'); prev.classList.add('done'); prev.querySelector('.step-tick').textContent = '✓'; }
@@ -685,29 +519,24 @@
       const cur = document.getElementById(`lstep${i}`);
       if (cur) { cur.classList.add('active'); cur.querySelector('.step-tick').textContent = '›'; }
       i++;
-      if (i >= SCAN_STEPS.length) {
-        clearInterval(interval);
-        setTimeout(() => finishScan(domain), 600);
-      }
+      if (i >= SCAN_STEPS.length) { clearInterval(iv); setTimeout(() => finishScan(domain), 600); }
     }, 340);
   }
 
   async function finishScan(domain) {
     const card = document.getElementById('resultCard');
     let ip = '—';
-
     try {
       const res  = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
       const data = await res.json();
-      if (data.Answer && data.Answer[0]) ip = data.Answer[0].data;
+      if (data.Answer?.[0]) ip = data.Answer[0].data;
     } catch(e) {}
 
     const score = Math.floor(Math.random() * 30) + 70;
-    let risk, riskColor, accentBorder;
-
-    if (score >= 85)      { risk = 'LOW RISK';      riskColor = '#00cc77'; accentBorder = '#00cc77'; }
-    else if (score >= 70) { risk = 'MODERATE RISK'; riskColor = '#ff8c00'; accentBorder = '#ff8c00'; }
-    else                  { risk = 'HIGH RISK';     riskColor = '#ff2244'; accentBorder = '#ff2244'; }
+    let risk, riskColor;
+    if (score >= 85)      { risk = 'LOW RISK';      riskColor = '#00dd88'; }
+    else if (score >= 70) { risk = 'MODERATE RISK'; riskColor = '#ffaa22'; }
+    else                  { risk = 'HIGH RISK';     riskColor = '#ff4466'; }
 
     const headers = score > 80 ? 'PARTIAL' : 'MISSING';
     const ssl     = score > 75 ? 'VALID'   : 'EXPIRED';
@@ -725,32 +554,30 @@
           <div class="score-lbl" style="color:${riskColor}">${risk}</div>
         </div>
       </div>
-
       <div class="result-metrics">
         <div class="metric-box" style="border-left-color:#00d4ff">
           <div class="m-label">IP Address</div>
           <div class="m-val" style="color:#00d4ff">${ip}</div>
         </div>
-        <div class="metric-box" style="border-left-color:${ssl==='VALID'?'#00cc77':'#ff2244'}">
+        <div class="metric-box" style="border-left-color:${ssl==='VALID'?'#00dd88':'#ff4466'}">
           <div class="m-label">SSL Cert</div>
-          <div class="m-val" style="color:${ssl==='VALID'?'#00cc77':'#ff2244'}">${ssl}</div>
+          <div class="m-val" style="color:${ssl==='VALID'?'#00dd88':'#ff4466'}">${ssl}</div>
         </div>
-        <div class="metric-box" style="border-left-color:${headers==='MISSING'?'#ff8c00':'#ffd700'}">
+        <div class="metric-box" style="border-left-color:${headers==='MISSING'?'#ffaa22':'#ffd700'}">
           <div class="m-label">Sec Headers</div>
-          <div class="m-val" style="color:${headers==='MISSING'?'#ff8c00':'#ffd700'}">${headers}</div>
+          <div class="m-val" style="color:${headers==='MISSING'?'#ffaa22':'#ffd700'}">${headers}</div>
         </div>
-        <div class="metric-box" style="border-left-color:#ff2244">
+        <div class="metric-box" style="border-left-color:#ff4466">
           <div class="m-label">Open Vectors</div>
-          <div class="m-val" style="color:#ff8c00">${ports} FOUND</div>
+          <div class="m-val" style="color:#ffaa22">${ports} FOUND</div>
         </div>
       </div>
-
       <div class="lock-box">
         <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0;">
           <div class="lock-icon">🔒</div>
           <div class="lock-info">
             <h4>Full Report Locked</h4>
-            <p>Unlock detailed vulnerabilities, CVEs, port scan & remediation steps.</p>
+            <p>Unlock detailed vulnerabilities, CVEs, port scan &amp; remediation steps.</p>
             <div class="lock-items">
               <div class="lock-item">PORT SCAN</div>
               <div class="lock-item">CVE LIST</div>
@@ -760,12 +587,10 @@
           </div>
         </div>
         <a href="../checkout.html" class="unlock-btn">UNLOCK — $19 →</a>
-      </div>
-    `;
+      </div>`;
 
     document.getElementById('scanBtn').disabled = false;
   }
 </script>
-
 </body>
 </html>
