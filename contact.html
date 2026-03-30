@@ -1,198 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Contact | Cyber-Node</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+<title>Contact | Cyber-Node Security Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #0e1f38;
+    --bg2: #142840;
+    --border: #2e5070;
+    --accent: #00d4ff;
+    --text: #e8f4ff;
+    --muted: #90bcd8;
+    --mono: 'Share Tech Mono', monospace;
+    --sans: 'Rajdhani', sans-serif;
+  }
 
-/* CONTACT PAGE */
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    margin: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-.contact-section{
-padding:120px 20px;
-background:linear-gradient(135deg,#1e3a8a,#020617);
-text-align:center;
-}
+  /* --- HERO & BACKGROUND --- */
+  .hero-wrap {
+    position: relative;
+    padding: 160px 20px 60px;
+    text-align: center;
+    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+  }
 
-.contact-container{
-max-width:700px;
-margin:auto;
-background:#0f1f3d;
-padding:50px;
-border-radius:12px;
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
-}
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+    background-size: 45px 45px;
+    mask-image: radial-gradient(circle, black, transparent 85%);
+  }
 
-.contact-container h1{
-margin-bottom:10px;
-}
+  .hero-content { position: relative; z-index: 2; }
+  .hero-content h1 { font-size: 48px; letter-spacing: -1px; margin-bottom: 10px; }
+  .hero-content p { font-family: var(--mono); color: var(--muted); }
 
-.contact-email{
-margin-bottom:30px;
-color:#cbd7ff;
-}
+  /* --- CONTACT FORM MODULE --- */
+  .contact-section {
+    max-width: 800px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+  }
 
-.contact-form{
-display:flex;
-flex-direction:column;
-gap:15px;
-}
+  .contact-container {
+    background: rgba(20, 40, 64, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  }
 
-.contact-form input,
-.contact-form textarea{
-padding:14px;
-border-radius:6px;
-border:none;
-font-size:15px;
-}
+  .info-header {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: var(--mono);
+  }
 
-.contact-form textarea{
-min-height:120px;
-resize:none;
-}
+  .info-header .email-link {
+    color: var(--accent);
+    font-size: 18px;
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
+  }
 
-.contact-form button{
-background:#2D8FE3;
-border:none;
-padding:14px;
-border-radius:6px;
-color:white;
-font-weight:600;
-cursor:pointer;
-}
+  /* --- CYBER FORM FIELDS --- */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 
-.contact-form button:hover{
-background:#1c6fc4;
-}
+  .form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
 
+  .form-group label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: rgba(14, 31, 56, 0.8);
+    border: 1px solid var(--border);
+    padding: 15px;
+    color: white;
+    font-family: var(--mono);
+    font-size: 14px;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  }
+
+  .contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  /* --- SUBMIT BUTTON --- */
+  .cn-btn {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 18px;
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+  }
+
+  .cn-btn:hover {
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 600px) {
+    .contact-container { padding: 30px 20px; }
+    .hero-content h1 { font-size: 36px; }
+  }
 </style>
-
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<div id="navbar"></div>
 
-<nav class="navbar">
-
-<div class="nav-container">
-
-<div class="logo">Cyber-Node</div>
-
-<ul class="nav-menu">
-
-<li><a href="index.html">Home</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-<li><a href="case-studies.html">Case Studies</a></li>
-<li><a href="resources.html">Resources</a></li>
-<li><a href="dashboard.html">Dashboard</a></li>
-
-<li>
-<a href="contact.html" class="contact-btn">Contact</a>
-</li>
-
-</ul>
-
-</div>
-
-</nav>
-
-<!-- CONTACT SECTION -->
-
-<section class="contact-section">
-
-<div class="contact-container">
-
-<h1>Contact Cyber-Node</h1>
-
-<p class="contact-email">
-Email: <strong>sales@cyber-node.com</strong>
-</p>
-
-<form class="contact-form">
-
-<input type="text" placeholder="Your Name" required>
-
-<input type="email" placeholder="Email Address" required>
-
-<textarea placeholder="How can we help?"></textarea>
-
-<button type="submit">Send Message</button>
-
-</form>
-
-</div>
-
+<section class="hero-wrap">
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 10px;">[ COMMS_ESTABLISHED ]</div>
+    <h1>Initialize <span>Contact</span></h1>
+    <p>Reach out to our intelligence team for security assessments and consultation.</p>
+  </div>
 </section>
 
-<!-- FOOTER -->
+<section class="contact-section">
+  <div class="contact-container">
+    <div class="info-header">
+      <p style="margin-bottom: 5px;">DIRECT_UPLINK:</p>
+      <a href="mailto:sales@cyber-node.com" class="email-link">sales@cyber-node.com</a>
+    </div>
 
-<footer class="footer">
+    <form class="contact-form">
+      <div class="form-group">
+        <label>Identity_Name</label>
+        <input type="text" placeholder="ENTER FULL NAME" required>
+      </div>
 
-<div class="footer-grid container">
+      <div class="form-group">
+        <label>Return_Email_Address</label>
+        <input type="email" placeholder="USER@DOMAIN.COM" required>
+      </div>
 
-<div>
+      <div class="form-group">
+        <label>Message_Payload</label>
+        <textarea placeholder="DESCRIBE YOUR INQUIRY..."></textarea>
+      </div>
 
-<h3>Cyber-Node</h3>
+      <button type="submit" class="cn-btn">Transmit Message</button>
+    </form>
+  </div>
+</section>
 
-<p>
-Cybersecurity intelligence platform providing
-security assessments and security automation.
-</p>
+<div id="footer"></div>
 
-</div>
+<script>
+  // Navbar loader
+  fetch("components/navbar.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("navbar").innerHTML = html; })
+    .catch(e => console.error("Nav Error:", e));
 
-<div>
-
-<h4>Platform</h4>
-
-<ul>
-<li><a href="tools/security-scan.html">Security Scan</a></li>
-<li><a href="tools/attack-surface.html">Attack Surface</a></li>
-<li><a href="dashboard.html">Security Dashboard</a></li>
-</ul>
-
-</div>
-
-<div>
-
-<h4>Company</h4>
-
-<ul>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-</ul>
-
-</div>
-
-<div>
-
-<h4>Contact</h4>
-
-<ul>
-<li>sales@cyber-node.com</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-Cyber-Node © 2026 — Cybersecurity Intelligence Platform
-
-</div>
-
-</footer>
+  // Footer loader
+  fetch("components/footer.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
+    .catch(e => console.error("Footer Error:", e));
+</script>
 
 </body>
-
 </html>
