@@ -256,3 +256,20 @@
 
 </body>
 </html>
+<script>
+  // Load Navbar
+  fetch("../components/navbar.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { 
+      if(html) document.getElementById("navbar").innerHTML = html; 
+    })
+    .catch(() => console.error("Navbar failed to load"));
+
+  // Load Footer
+  fetch("../components/footer.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { 
+      if(html) document.getElementById("footer").innerHTML = html; 
+    })
+    .catch(() => console.error("Footer failed to load"));
+</script>
