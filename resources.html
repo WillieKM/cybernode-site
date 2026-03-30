@@ -1,399 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Cybersecurity Resources | Cyber-Node</title>
-
+<title>Resources | Cyber-Node Security Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #0e1f38;
+    --bg2: #142840;
+    --border: #2e5070;
+    --accent: #00d4ff;
+    --neon-lime: #bfff00;
+    --red: #ff4466;
+    --text: #e8f4ff;
+    --muted: #90bcd8;
+    --mono: 'Share Tech Mono', monospace;
+    --sans: 'Rajdhani', sans-serif;
+  }
 
-/* GLOBAL */
-<div id="navbar"></div>
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    margin: 0;
+    line-height: 1.6;
+  }
 
-<script>
-fetch("/components/navbar.html")
-.then(res => res.text())
-.then(data => {
-document.getElementById("navbar").innerHTML = data;
-});
-</script>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#071428;
-color:white;
-}
+  /* --- HERO SECTION --- */
+  .hero-wrap {
+    position: relative;
+    padding: 160px 20px 80px;
+    text-align: center;
+    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    border-bottom: 1px solid var(--border);
+  }
 
-/* NAVBAR */
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+    background-size: 45px 45px;
+    mask-image: radial-gradient(circle, black, transparent 85%);
+  }
 
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-background:#020c1b;
-}
+  .hero-content { position: relative; z-index: 2; }
+  .hero-content h1 { font-size: 48px; letter-spacing: -1px; margin-bottom: 15px; }
+  .hero-content p { font-family: var(--mono); color: var(--muted); max-width: 700px; margin: 0 auto; }
 
-.logo{
-font-weight:bold;
-font-size:20px;
-}
+  /* --- STATS GRID --- */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: -40px auto 60px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+  }
 
-.nav-links a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-size:14px;
-}
+  .stat-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
 
-.nav-links a:hover{
-color:#2D8FE3;
-}
+  .stat-card h2 { 
+    font-family: var(--mono); 
+    color: var(--accent); 
+    font-size: 32px; 
+    margin: 0 0 5px; 
+    text-shadow: 0 0 10px rgba(0,212,255,0.3);
+  }
 
-/* HERO */
+  .stat-card p { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
 
-.hero{
-text-align:center;
-padding:80px 20px;
-background:linear-gradient(90deg,#1e3c72,#0b1d3a);
-}
+  /* --- RESOURCE CARDS --- */
+  .section-container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
+  
+  .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
 
-.hero h1{
-font-size:42px;
-margin-bottom:10px;
-}
+  .resource-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    padding: 35px;
+    border-radius: 12px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
 
-.hero p{
-color:#cbd7ff;
-}
+  .resource-card:hover {
+    border-color: var(--accent);
+    background: rgba(0, 212, 255, 0.03);
+    transform: translateY(-5px);
+  }
 
-/* STATS */
+  .resource-card h3 { font-size: 22px; margin-bottom: 15px; color: #fff; }
+  .resource-card p { font-size: 14px; color: var(--muted); flex-grow: 1; margin-bottom: 25px; }
 
-.stats{
-max-width:1100px;
-margin:60px auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-padding:0 20px;
-}
+  /* --- LIVE THREAT FEED --- */
+  .threat-feed {
+    background: #0a1628;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    margin-top: 40px;
+  }
 
-.stat{
-background:#0f1f3d;
-padding:30px;
-border-radius:10px;
-text-align:center;
-}
+  .feed-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-family: var(--mono);
+    font-size: 14px;
+  }
 
-.stat h2{
-color:#2D8FE3;
-font-size:36px;
-margin-bottom:10px;
-}
+  .feed-item span.tag {
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+  }
 
-.stat p{
-color:#cbd7ff;
-font-size:14px;
-}
+  .tag-critical { background: rgba(255,68,102,0.2); color: var(--red); border: 1px solid var(--red); }
+  .tag-warning { background: rgba(255,170,34,0.2); color: #ffaa22; border: 1px solid #ffaa22; }
 
-/* RESOURCE GRID */
+  /* --- BUTTONS --- */
+  .cn-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-family: var(--mono);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: 0.3s;
+    text-align: center;
+    cursor: pointer;
+  }
 
-.resources{
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
+  .btn-outline { border: 1px solid var(--accent); color: var(--accent); background: transparent; }
+  .btn-primary { background: var(--accent); color: var(--bg); border: none; }
+  .cn-btn:hover { box-shadow: 0 0 15px rgba(0,212,255,0.4); transform: scale(1.02); }
 
-.resource-card{
-background:#0f1f3d;
-padding:30px;
-border-radius:10px;
-transition:0.3s;
-}
-
-.resource-card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
-
-.resource-card h3{
-color:#2D8FE3;
-margin-bottom:10px;
-}
-
-.resource-card p{
-color:#cbd7ff;
-font-size:14px;
-}
-
-.resource-card button{
-margin-top:15px;
-padding:10px 18px;
-border:none;
-background:#2D8FE3;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-/* ALERTS */
-
-.alerts{
-background:#0f1f3d;
-padding:60px 20px;
-margin-top:40px;
-}
-
-.alert-container{
-max-width:1000px;
-margin:auto;
-}
-
-.alert{
-background:#08152b;
-padding:20px;
-margin-bottom:15px;
-border-left:4px solid #2D8FE3;
-border-radius:6px;
-}
-
-.alert strong{
-color:#8fb3ff;
-}
-
-/* CTA */
-
-.cta{
-text-align:center;
-padding:80px 20px;
-background:#0f1f3d;
-}
-
-.cta button{
-padding:14px 30px;
-background:#2D8FE3;
-border:none;
-border-radius:6px;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-.footer{
-background:#020c1b;
-padding:60px 20px;
-}
-
-.footer-grid{
-max-width:1200px;
-margin:auto;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-}
-
-.footer h4{
-color:#2D8FE3;
-margin-bottom:10px;
-}
-
-.footer a{
-display:block;
-color:#cbd7ff;
-text-decoration:none;
-margin-bottom:6px;
-font-size:14px;
-}
-
-.footer-bottom{
-text-align:center;
-margin-top:40px;
-font-size:13px;
-color:#7a8cb3;
-}
-
+  @media (max-width: 800px) {
+    .hero-content h1 { font-size: 36px; }
+  }
 </style>
-
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<div id="navbar"></div>
 
-<div class="navbar">
-
-<div class="logo">Cyber-Node</div>
-
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="services.html">Services</a>
-<a href="pricing.html">Pricing</a>
-<a href="case-studies.html">Case Studies</a>
-<a href="resources.html">Resources</a>
-<a href="dashboard.html">Dashboard</a>
-<a href="about.html">About</a>
-</div>
-
-</div>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>Cybersecurity Resources</h1>
-
-<p>Insights, tools, and research to strengthen your organization's security posture.</p>
-
+<section class="hero-wrap">
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 10px;">[ INTEL_REPOSITORY_v4 ]</div>
+    <h1>Security <span>Intelligence</span> Center</h1>
+    <p>Expert research, compliance frameworks, and live threat data to harden your infrastructure.</p>
+  </div>
 </section>
 
-<!-- SECURITY STATS -->
-
-<section class="stats">
-
-<div class="stat">
-<h2>43%</h2>
-<p>of cyber attacks target small businesses</p>
-</div>
-
-<div class="stat">
-<h2>$4.45M</h2>
-<p>average global cost of a data breach</p>
-</div>
-
-<div class="stat">
-<h2>95%</h2>
-<p>of breaches are caused by human error</p>
-</div>
-
-<div class="stat">
-<h2>277 Days</h2>
-<p>average time to detect a breach</p>
-</div>
-
+<section class="stats-grid">
+  <div class="stat-card">
+    <h2>43%</h2>
+    <p>Target: SMBs</p>
+  </div>
+  <div class="stat-card">
+    <h2>$4.45M</h2>
+    <p>Avg. Breach Cost</p>
+  </div>
+  <div class="stat-card">
+    <h2>95%</h2>
+    <p>Human Error Factor</p>
+  </div>
+  <div class="stat-card">
+    <h2>277d</h2>
+    <p>Avg. Detection Time</p>
+  </div>
 </section>
 
-<!-- RESOURCE GUIDES -->
+<section class="section-container">
+  <div style="margin-bottom: 40px;">
+    <h2 style="font-size: 28px; text-transform: uppercase; letter-spacing: 2px;">Security Frameworks & Guides</h2>
+  </div>
+  
+  <div class="resource-grid">
+    <div class="resource-card">
+      <h3>Risk Assessment Guide</h3>
+      <p>Methodologies for identifying, analyzing, and prioritizing infrastructure vulnerabilities.</p>
+      <button class="cn-btn btn-outline">Access Guide</button>
+    </div>
 
-<section class="resources">
+    <div class="resource-card">
+      <h3>Web App Vulnerabilities</h3>
+      <p>A deep dive into the OWASP Top 10 and modern exploitation techniques.</p>
+      <button class="cn-btn btn-outline">View Analysis</button>
+    </div>
 
-<div class="resource-card">
-<h3>Cybersecurity Risk Assessment Guide</h3>
-<p>Learn how organizations identify and prioritize cybersecurity risks.</p>
-<button>Read Guide</button>
-</div>
+    <div class="resource-card">
+      <h3>Compliance Checklist</h3>
+      <p>Step-by-step preparation for NIST, HIPAA, and SOC2 certification audits.</p>
+      <button class="cn-btn btn-outline">Download PDF</button>
+    </div>
 
-<div class="resource-card">
-<h3>Common Web Application Vulnerabilities</h3>
-<p>Understand the most common security weaknesses discovered during testing.</p>
-<button>View Article</button>
-</div>
+    <div class="resource-card">
+      <h3>Ransomware Defense</h3>
+      <p>Technical controls and employee training protocols to mitigate encryption attacks.</p>
+      <button class="cn-btn btn-outline">Read Guide</button>
+    </div>
+  </div>
 
-<div class="resource-card">
-<h3>Compliance Readiness Checklist</h3>
-<p>Prepare for security frameworks like NIST, HIPAA, and SOC2.</p>
-<button>Download</button>
-</div>
+  <div class="threat-feed">
+    <h3 style="font-family: var(--mono); color: var(--accent); margin-top: 0;">// LIVE_THREAT_FEED</h3>
+    
+    <div class="feed-item">
+      <span class="tag tag-critical">CRITICAL</span>
+      <div><strong>Ransomware Alert:</strong> New variants targeting healthcare infrastructure detected.</div>
+    </div>
 
-<div class="resource-card">
-<h3>Ransomware Prevention Guide</h3>
-<p>Learn how businesses protect themselves from ransomware attacks.</p>
-<button>Read Guide</button>
-</div>
+    <div class="feed-item">
+      <span class="tag tag-warning">WARNING</span>
+      <div><strong>Plugin Exploit:</strong> Zero-day discovered in major CMS authentication modules.</div>
+    </div>
 
+    <div class="feed-item">
+      <span class="tag tag-warning">ADVISORY</span>
+      <div><strong>AI Phishing:</strong> Increased volume of high-fidelity social engineering campaigns.</div>
+    </div>
+  </div>
 </section>
 
-<!-- SECURITY ALERTS -->
-
-<section class="alerts">
-
-<div class="alert-container">
-
-<h2>Latest Security Alerts</h2>
-
-<div class="alert">
-<strong>Critical:</strong> New ransomware campaigns targeting healthcare organizations.
-</div>
-
-<div class="alert">
-<strong>Warning:</strong> Exploits discovered in outdated WordPress plugins.
-</div>
-
-<div class="alert">
-<strong>Advisory:</strong> Increased phishing campaigns using AI-generated emails.
-</div>
-
-</div>
-
+<section style="text-align: center; padding: 100px 20px; background: rgba(0,212,255,0.02); border-top: 1px solid var(--border);">
+  <h2 style="font-size: 32px; margin-bottom: 10px;">Analyze Your Risk Profile</h2>
+  <p style="color: var(--muted); margin-bottom: 30px;">Deploy our automated scanner to identify active vulnerabilities.</p>
+  <button class="cn-btn btn-primary" onclick="location.href='scanner.html'" style="padding: 16px 40px; font-size: 14px;">Run Security Scan</button>
 </section>
 
-<!-- CTA -->
+<div id="footer"></div>
 
-<section class="cta">
+<script>
+  // Navbar loader
+  fetch("components/navbar.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("navbar").innerHTML = html; })
+    .catch(e => console.error("Nav Error:", e));
 
-<h2>Run a Free Security Assessment</h2>
-
-<p>Identify vulnerabilities in your organization's infrastructure.</p>
-
-<br>
-
-<button onclick="location.href='scanner.html'">
-Run Security Scan
-</button>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-<div class="footer-grid">
-
-<div>
-<h4>Cyber-Node</h4>
-<a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Case Studies</a>
-<a href="#">Resources</a>
-</div>
-
-<div>
-<h4>Security Services</h4>
-<a href="#">Security Audits</a>
-<a href="#">Infrastructure Protection</a>
-<a href="#">Compliance Consulting</a>
-</div>
-
-<div>
-<h4>Resources</h4>
-<a href="#">Security Guides</a>
-<a href="#">Threat Alerts</a>
-<a href="#">Security Tools</a>
-</div>
-
-<div>
-<h4>Contact</h4>
-<a href="#">Schedule Consultation</a>
-<a href="#">support@cyber-node.com</a>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-
-Cyber-Node © 2026 — Cybersecurity & Security Automation
-
-</div>
-
-</footer>
+  // Footer loader
+  fetch("components/footer.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
+    .catch(e => console.error("Footer Error:", e));
+</script>
 
 </body>
-
 </html>
