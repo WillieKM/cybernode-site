@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact | Cyber-Node Security Intelligence</title>
+<meta name="description" content="Contact Cyber-Node's security intelligence team for assessments, pen-testing, and compliance consultations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -14,6 +15,8 @@
     --accent: #00d4ff;
     --text: #e8f4ff;
     --muted: #90bcd8;
+    --success: #00ff88;
+    --error: #ff4444;
     --mono: 'Share Tech Mono', monospace;
     --sans: 'Rajdhani', sans-serif;
   }
@@ -27,7 +30,6 @@
     overflow-x: hidden;
   }
 
-  /* --- HERO & BACKGROUND --- */
   .hero-wrap {
     position: relative;
     padding: 160px 20px 60px;
@@ -49,7 +51,6 @@
   .hero-content h1 { font-size: 48px; letter-spacing: -1px; margin-bottom: 10px; }
   .hero-content p { font-family: var(--mono); color: var(--muted); }
 
-  /* --- CONTACT FORM MODULE --- */
   .contact-section {
     max-width: 800px;
     margin: 0 auto 100px;
@@ -80,7 +81,6 @@
     border-bottom: 1px dashed var(--accent);
   }
 
-  /* --- CYBER FORM FIELDS --- */
   .contact-form {
     display: flex;
     flex-direction: column;
@@ -126,7 +126,6 @@
     resize: vertical;
   }
 
-  /* --- SUBMIT BUTTON --- */
   .cn-btn {
     background: var(--accent);
     color: var(--bg);
@@ -140,12 +139,46 @@
     cursor: pointer;
     transition: 0.3s;
     margin-top: 10px;
+    position: relative;
   }
 
-  .cn-btn:hover {
+  .cn-btn:hover:not(:disabled) {
     box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
     transform: translateY(-2px);
   }
+
+  .cn-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Status messages */
+  .form-status {
+    display: none;
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .form-status.success {
+    display: block;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid var(--success);
+    color: var(--success);
+  }
+
+  .form-status.error {
+    display: block;
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid var(--error);
+    color: var(--error);
+  }
+
+  /* Honeypot — hidden from real users, catches bots */
+  .bot-trap { display: none; }
 
   @media (max-width: 600px) {
     .contact-container { padding: 30px 20px; }
@@ -173,23 +206,35 @@
       <a href="mailto:sales@cyber-node.com" class="email-link">sales@cyber-node.com</a>
     </div>
 
-    <form class="contact-form">
+    <form class="contact-form" id="contactForm">
+      <!-- Web3Forms access key — replace with yours from web3forms.com -->
+      <input type="hidden" name="access_key" value="59d2f31e-d9a6-4f5e-8687-c4f7147bd2fa">
+      <!-- Custom subject line in the email you receive -->
+      <input type="hidden" name="subject" value="New Cyber-Node Inquiry">
+      <!-- Redirect after success (optional — we handle it in JS instead) -->
+      <input type="hidden" name="redirect" value="false">
+
+      <!-- Honeypot spam trap -->
+      <input type="text" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off">
+
       <div class="form-group">
-        <label>Identity_Name</label>
-        <input type="text" placeholder="ENTER FULL NAME" required>
+        <label for="name">Identity_Name</label>
+        <input type="text" id="name" name="name" placeholder="ENTER FULL NAME" required>
       </div>
 
       <div class="form-group">
-        <label>Return_Email_Address</label>
-        <input type="email" placeholder="USER@DOMAIN.COM" required>
+        <label for="email">Return_Email_Address</label>
+        <input type="email" id="email" name="email" placeholder="USER@DOMAIN.COM" required>
       </div>
 
       <div class="form-group">
-        <label>Message_Payload</label>
-        <textarea placeholder="DESCRIBE YOUR INQUIRY..."></textarea>
+        <label for="message">Message_Payload</label>
+        <textarea id="message" name="message" placeholder="DESCRIBE YOUR INQUIRY..."></textarea>
       </div>
 
-      <button type="submit" class="cn-btn">Transmit Message</button>
+      <div class="form-status" id="formStatus"></div>
+
+      <button type="submit" class="cn-btn" id="submitBtn">Transmit Message</button>
     </form>
   </div>
 </section>
@@ -208,6 +253,45 @@
     .then(r => r.ok ? r.text() : '')
     .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
     .catch(e => console.error("Footer Error:", e));
+
+  // ── FORM SUBMISSION ──────────────────────────────────────────
+  const form = document.getElementById("contactForm");
+  const btn = document.getElementById("submitBtn");
+  const status = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.textContent = "TRANSMITTING...";
+    status.className = "form-status";
+    status.style.display = "none";
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        status.textContent = "// TRANSMISSION SUCCESSFUL — WE'LL BE IN TOUCH SHORTLY";
+        status.className = "form-status success";
+        form.reset();
+        btn.textContent = "MESSAGE SENT ✓";
+      } else {
+        throw new Error(json.message || "Submission failed");
+      }
+    } catch (err) {
+      status.textContent = "// TRANSMISSION FAILED — PLEASE EMAIL sales@cyber-node.com DIRECTLY";
+      status.className = "form-status error";
+      btn.disabled = false;
+      btn.textContent = "Transmit Message";
+    }
+  });
 </script>
 
 </body>
