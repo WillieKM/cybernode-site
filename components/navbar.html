@@ -144,4 +144,40 @@
     </div>
 
   </div>
+  <!-- ══════════════════════════════════════════════════════════════
+     CYBER-NODE ANALYTICS
+     Paste this block inside the <head> of components/navbar.html
+     OR add it before </body> on every page if navbar has no <head>
+     ══════════════════════════════════════════════════════════════ -->
+
+<!-- 1. VERCEL ANALYTICS — tracks page views, Web Vitals, performance -->
+<!-- No config needed. Works automatically when deployed on Vercel.   -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- 2. PLAUSIBLE ANALYTICS — privacy-first, no cookies, GDPR compliant -->
+<!-- ACTION REQUIRED: Replace YOUR_DOMAIN with your actual domain       -->
+<!-- e.g. data-domain="cyber-node.com"  (no www, no https://)          -->
+<script defer data-domain="cyber-node.com" src="https://plausible.io/js/script.js"></script>
+
+<!-- ══════════════════════════════════════════════════════════════
+     SETUP STEPS:
+     
+     VERCEL ANALYTICS:
+     1. Go to vercel.com → your project → Analytics tab
+     2. Click "Enable" — done. Data starts flowing immediately.
+     
+     PLAUSIBLE:
+     1. Go to plausible.io → sign up (free 30-day trial, then $9/mo)
+     2. Add site: cyber-node.com
+     3. The script above is already configured for your domain
+     4. Verify by visiting your site and checking Plausible dashboard
+     
+     WHAT YOU GET:
+     - Vercel: Core Web Vitals, load times, real user performance data
+     - Plausible: Page views, unique visitors, referrers, countries,
+                  devices, top pages — all without cookies or GDPR banner
+     ══════════════════════════════════════════════════════════════ -->
 </header>
