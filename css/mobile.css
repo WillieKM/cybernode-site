@@ -1,0 +1,238 @@
+/* ================================================================
+   CYBER-NODE — GLOBAL MOBILE STYLESHEET
+   File: css/mobile.css
+   Link this in every page <head> AFTER your inline <style> block:
+   <link rel="stylesheet" href="css/mobile.css">
+   (or "../css/mobile.css" for pages in subdirectories like /tools/)
+   ================================================================ */
+
+/* ── BASE RESETS ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ── NAVBAR — HAMBURGER MENU ─────────────────────────────────── */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent, #00d4ff);
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── HERO SECTIONS ───────────────────────────────────────────── */
+.hero-wrap,
+.hero {
+  padding: 120px 20px 60px;
+}
+
+.hero-content h1,
+.hero h1 {
+  font-size: 56px; /* desktop default */
+  line-height: 1.15;
+}
+
+.hero-content p,
+.hero p {
+  font-size: 16px;
+}
+
+/* ── BUTTON GROUPS ───────────────────────────────────────────── */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* ── GRIDS — DESKTOP DEFAULTS ────────────────────────────────── */
+.soc-grid,
+.service-grid,
+.services-grid,
+.pricing-grid,
+.cards-grid,
+.process-steps {
+  display: grid;
+  gap: 20px;
+}
+
+.service-grid        { grid-template-columns: repeat(4, 1fr); }
+.process-grid        { grid-template-columns: repeat(4, 1fr); }
+.soc-grid            { grid-template-columns: repeat(3, 1fr); }
+.services-grid       { grid-template-columns: repeat(3, 1fr); }
+.pricing-grid        { grid-template-columns: repeat(3, 1fr); }
+.cards-grid          { grid-template-columns: repeat(2, 1fr); }
+.process-steps       { grid-template-columns: repeat(4, 1fr); }
+
+/* ── HERO BADGES (pricing page) ──────────────────────────────── */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ── METRICS BAR (about page) ────────────────────────────────── */
+.metrics-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.metric-val {
+  font-size: 48px;
+}
+
+/* ── CONTACT FORM ────────────────────────────────────────────── */
+.contact-container {
+  padding: 50px;
+}
+
+/* ================================================================
+   TABLET — max-width: 900px
+   ================================================================ */
+@media (max-width: 900px) {
+  .hero-content h1,
+  .hero h1 { font-size: 42px; }
+
+  .service-grid        { grid-template-columns: repeat(2, 1fr); }
+  .process-grid        { grid-template-columns: repeat(2, 1fr); }
+  .soc-grid            { grid-template-columns: repeat(2, 1fr); }
+  .services-grid       { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid        { grid-template-columns: repeat(2, 1fr); }
+  .process-steps       { grid-template-columns: repeat(2, 1fr); }
+
+  .pricing-card.highlight {
+    grid-column: span 2; /* highlight card spans full width on tablet */
+  }
+}
+
+/* ================================================================
+   MOBILE — max-width: 600px
+   ================================================================ */
+@media (max-width: 600px) {
+
+  /* Hero */
+  .hero-wrap,
+  .hero { padding: 100px 16px 50px; }
+
+  .hero-content h1,
+  .hero h1 { font-size: 30px; letter-spacing: -0.5px; }
+
+  .hero-content p,
+  .hero p { font-size: 14px; }
+
+  /* Eyebrow labels */
+  [style*="letter-spacing: 5px"],
+  [style*="letter-spacing: 4px"] {
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* All grids go single column on mobile */
+  .service-grid,
+  .process-grid,
+  .soc-grid,
+  .services-grid,
+  .pricing-grid,
+  .cards-grid,
+  .process-steps { grid-template-columns: 1fr; }
+
+  /* Pricing — reset highlight span */
+  .pricing-card.highlight { grid-column: span 1; }
+
+  /* Buttons */
+  .btn-group { flex-direction: column; align-items: center; }
+  .btn-group .cn-btn { width: 100%; max-width: 320px; text-align: center; }
+
+  /* Hero badges */
+  .hero-badges { flex-direction: column; align-items: center; }
+  .hero-badges span { width: 100%; max-width: 280px; text-align: center; }
+
+  /* Contact form */
+  .contact-container { padding: 24px 16px; }
+
+  /* Metrics */
+  .metrics-wrap { flex-direction: column; align-items: center; text-align: center; }
+  .metric-val { font-size: 36px; }
+
+  /* Cards */
+  .cyber-card,
+  .service-card,
+  .soc-card,
+  .pricing-card { padding: 24px 20px; }
+
+  /* Section containers */
+  .section,
+  .section-container { padding: 50px 16px; }
+
+  /* Pricing price tag */
+  .price-tag { font-size: 32px; }
+
+  /* Process steps */
+  .process-step { padding: 20px; }
+
+  /* Navbar hamburger */
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(14, 31, 56, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    z-index: 1000;
+    font-size: 20px;
+  }
+
+  .nav-links.open { display: flex; }
+}
+
+/* ================================================================
+   SMALL MOBILE — max-width: 375px
+   ================================================================ */
+@media (max-width: 375px) {
+  .hero-content h1,
+  .hero h1 { font-size: 26px; }
+
+  .hero-wrap,
+  .hero { padding: 90px 12px 40px; }
+}
