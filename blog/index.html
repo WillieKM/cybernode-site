@@ -263,7 +263,6 @@
 <div id="footer"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="../js/blog.js"></script>
 <script>
   fetch("../components/navbar.html")
     .then(r => r.ok ? r.text() : '')
@@ -275,17 +274,10 @@
     .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
     .catch(e => console.error("Footer:", e));
 
-  // Render posts on load
-  window.addEventListener('DOMContentLoaded', () => {
-    window.CyberBlog.renderBlogIndex('blog-grid');
-  });
-
   // Category filter
-  let allPosts = [];
   function filterPosts(btn, category) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const cards = document.querySelectorAll('.blog-card');
     cards.forEach(card => {
       const cat = card.querySelector('.blog-category')?.textContent.trim();
@@ -293,6 +285,8 @@
     });
   }
 </script>
+<!-- blog.js loaded last so window.CyberBlog is defined before we call it -->
+<script src="../js/blog.js" onload="window.CyberBlog.renderBlogIndex('blog-grid')"></script>
 
 </body>
 </html>
